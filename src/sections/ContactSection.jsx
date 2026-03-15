@@ -1,0 +1,29 @@
+import { ArrowUpRight } from 'lucide-react'
+
+export default function ContactSection() {
+  return (
+    <section id="contact" className="py-24 px-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
+      <div className="max-w-2xl mx-auto text-center">
+        <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
+          Get In Touch
+        </p>
+        <h2 className="font-serif text-4xl md:text-5xl font-light mb-6" style={{ color: 'var(--color-foreground)' }}>
+          Let's work together.
+        </h2>
+        <div className="w-12 h-px mx-auto mb-6" style={{ backgroundColor: 'var(--color-accent)' }} />
+        <p className="text-sm font-light leading-relaxed mb-10" style={{ color: 'var(--color-foreground-muted)' }}>
+          I'm currently open to new opportunities — whether that's a full-time role, a freelance project, or just a good conversation about design.
+        </p>
+        <a
+          href="mailto:chase@example.com"
+          className="inline-flex items-center gap-2 font-serif text-2xl font-light border-b pb-1 transition-colors"
+          style={{ color: 'var(--color-foreground)', borderColor: 'var(--color-accent)' }}
+          onMouseEnter={e => e.currentTarget.style.color = 'var(--color-accent)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'var(--color-foreground)'}
+        >
+          chase@example.com <ArrowUpRight size={20} />
+        </a>
+      </div>
+    </section>
+  )
+}

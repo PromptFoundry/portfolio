@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Showcase Test</title>
+<style>
+* { box-sizing: border-box; margin: 0; }
+body { background: #020617; }
+
+.hero {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(2,6,23,0) 38%, rgba(2,6,23,0.35) 65%, rgba(2,6,23,0.95) 100%),
+    linear-gradient(to bottom, rgba(2,6,23,1) 0%, rgba(2,6,23,0) 18%, rgba(2,6,23,0) 82%, rgba(2,6,23,1) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+.scene {
+  width: 100%; height: 100%;
+  perspective: 1800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plane-wrap {
+  transform-style: preserve-3d;
+  animation: floatY 8s ease-in-out infinite;
+}
+.plane {
+  width: 1720px;
+  /* center center keeps the grid visible when flex-centered */
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transform: scale(0.55) rotateX(52deg) rotateZ(-45deg) translateZ(0);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 406px);
+  column-gap: 32px;
+  align-items: start;
+  transform-style: preserve-3d;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  will-change: transform;
+}
+.col img {
+  width: 100%;
+  height: 254px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.col1 { animation: s1 26s linear infinite; }
+.col2 { animation: s2 32s linear infinite; }
+.col3 { animation: s3 30s linear infinite; }
+.col4 { animation: s4 38s linear infinite; }
+
+@keyframes floatY { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(0,-8px,0)} }
+@keyframes s1 { from{transform:translate3d(0,0px,0px)}      to{transform:translate3d(0,-1144px,0px)} }
+@keyframes s2 { from{transform:translate3d(0,-180px,40px)}  to{transform:translate3d(0,-1324px,40px)} }
+@keyframes s3 { from{transform:translate3d(0,-60px,20px)}   to{transform:translate3d(0,-1204px,20px)} }
+@keyframes s4 { from{transform:translate3d(0,-320px,60px)}  to{transform:translate3d(0,-1464px,60px)} }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="scene">
+    <div class="plane-wrap">
+      <div class="plane">
+        <div class="grid">
+          <div class="col col1">
+            <img src="/images/arcis/templates/dark/luxury-estate.png">
+            <img src="/images/arcis/templates/dark/membership.png">
+            <img src="/images/arcis/templates/dark/resort.png">
+            <img src="/images/arcis/templates/dark/pro-circuit.png">
+            <img src="/images/arcis/templates/dark/luxury-estate.png">
+            <img src="/images/arcis/templates/dark/membership.png">
+            <img src="/images/arcis/templates/dark/resort.png">
+            <img src="/images/arcis/templates/dark/pro-circuit.png">
+          </div>
+          <div class="col col2">
+            <img src="/images/arcis/templates/dark/classic.png">
+            <img src="/images/arcis/templates/dark/events.png">
+            <img src="/images/arcis/templates/dark/weekend-getaway.png">
+            <img src="/images/arcis/templates/dark/member-experience.png">
+            <img src="/images/arcis/templates/dark/classic.png">
+            <img src="/images/arcis/templates/dark/events.png">
+            <img src="/images/arcis/templates/dark/weekend-getaway.png">
+            <img src="/images/arcis/templates/dark/member-experience.png">
+          </div>
+          <div class="col col3">
+            <img src="/images/arcis/templates/dark/tournament.png">
+            <img src="/images/arcis/templates/dark/course-cuisine.png">
+            <img src="/images/arcis/templates/dark/sales-driven.png">
+            <img src="/images/arcis/templates/dark/minimal.png">
+            <img src="/images/arcis/templates/dark/tournament.png">
+            <img src="/images/arcis/templates/dark/course-cuisine.png">
+            <img src="/images/arcis/templates/dark/sales-driven.png">
+            <img src="/images/arcis/templates/dark/minimal.png">
+          </div>
+          <div class="col col4">
+            <img src="/images/arcis/templates/dark/pro-shop.png">
+            <img src="/images/arcis/templates/dark/event-hub.png">
+            <img src="/images/arcis/templates/dark/discovery.png">
+            <img src="/images/arcis/templates/dark/luxury-estate.png">
+            <img src="/images/arcis/templates/dark/pro-shop.png">
+            <img src="/images/arcis/templates/dark/event-hub.png">
+            <img src="/images/arcis/templates/dark/discovery.png">
+            <img src="/images/arcis/templates/dark/luxury-estate.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
