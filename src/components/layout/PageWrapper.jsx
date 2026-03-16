@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { useTheme } from '../../hooks/useTheme'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import BackButton from './BackButton'
 
 export default function PageWrapper({ children }) {
   const rootRef = useRef(null)
@@ -22,6 +23,7 @@ export default function PageWrapper({ children }) {
         {children}
       </main>
       <Footer />
+      <BackButton />
     </div>
   )
 }
