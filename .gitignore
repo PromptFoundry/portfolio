@@ -1,5 +1,4 @@
 node_modules/
 dist/
 .DS_Store
-public/videos/
-public/images/arcis/ui-blocks
+public/videos/*.mov
