@@ -78,11 +78,22 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
                   outline: '1px solid var(--color-border)',
                 }}
               >
-                <img
-                  src={tile.image}
-                  alt={tile.title}
-                  className={`h-80 w-full object-cover ${tile.imageClass || ''}`}
-                />
+                {tile.video ? (
+                  <video
+                    src={tile.video}
+                    className="h-80 w-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={tile.image}
+                    alt={tile.title}
+                    className={`h-80 w-full object-cover ${tile.imageClass || ''}`}
+                  />
+                )}
                 <div className="p-8 sm:p-10">
                   <p className="text-[10px] font-semibold tracking-[0.3em] uppercase" style={{ color: accent }}>
                     {tile.label}
