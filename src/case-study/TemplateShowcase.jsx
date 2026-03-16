@@ -345,6 +345,10 @@ export default function TemplateShowcase() {
             border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
             boxShadow: isDark ? '0 4px 24px rgba(0,0,0,0.5)' : '0 4px 24px rgba(0,0,0,0.15)',
             whiteSpace: 'nowrap',
+            maxWidth: 'calc(100% - 32px)',
+            overflowX: 'auto',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
           }}
         >
           {THEME_CONFIG.map(({ id, label, color }) => {
