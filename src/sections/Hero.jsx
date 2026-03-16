@@ -215,7 +215,29 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <style>{`
+        @keyframes scroll-bob {
+          0%, 100% { transform: translateX(-50%) translateY(0); }
+          50% { transform: translateX(-50%) translateY(6px); }
+        }
+        @keyframes scroll-dot {
+          0%, 100% { transform: translateY(0); opacity: 0.6; }
+          50% { transform: translateY(4px); opacity: 1; }
+        }
+      `}</style>
+      <div
+        className="absolute bottom-8 left-1/2 flex flex-col items-center gap-2"
+        style={{ animation: 'scroll-bob 2.4s ease-in-out infinite', transform: 'translateX(-50%)' }}
+      >
+        {/* Mouse outline */}
+        <svg width="22" height="34" viewBox="0 0 22 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="20" height="32" rx="10" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5"/>
+          <rect
+            x="10" y="6" width="2" height="6" rx="1"
+            fill="rgba(255,255,255,0.25)"
+            style={{ animation: 'scroll-dot 2.4s ease-in-out infinite' }}
+          />
+        </svg>
         <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.25)' }}>Scroll</span>
         <ArrowDown size={14} style={{ color: 'rgba(255,255,255,0.25)' }} />
       </div>
