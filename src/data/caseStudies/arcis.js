@@ -56,7 +56,7 @@ export const arcis = {
       bento: true,
       bentoTiles: [
         {
-          image: '/images/arcis/templates/dark/classic.png',
+          image: '/images/arcis/bento-augusta-theme.png',
           imageClass: 'object-top',
           label: 'Augusta Theme',
           title: 'Warm, refined, and timeless',
@@ -65,16 +65,16 @@ export const arcis = {
           roundedExtra: 'max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]',
         },
         {
-          image: '/images/arcis/ui-blocks/neutral/dark/content-stats.png',
+          image: '/images/arcis/bento-component-library.png',
           imageClass: 'object-top',
-          label: 'Design Tokens',
+          label: 'Component Library',
           title: '5 named themes, one system',
           body: 'Augusta, Bordeaux, Coastal, Desert Ridge, and Links — each a fully resolved set of CSS custom properties.',
           colSpan: 'lg:col-span-2',
           roundedExtra: 'lg:rounded-tr-[2rem]',
         },
         {
-          image: '/images/arcis/ui-blocks/neutral/dark/footer-classic.png',
+          image: '/images/arcis/bento-component-library.png',
           imageClass: 'object-top',
           label: 'Dark Mode',
           title: 'Every component. Both modes.',
@@ -85,8 +85,8 @@ export const arcis = {
         {
           video: '/videos/arcis-responsive-preview.mp4',
           label: 'Responsive Preview',
-          title: 'Preview across every breakpoint',
-          body: 'Toggle between desktop, tablet, and mobile views instantly. See exactly how every section adapts before publishing.',
+          title: 'Change themes without a reload',
+          body: 'The active theme is resolved at the CSS root. Swap club identities on the fly — no build step, no code change.',
           colSpan: 'lg:col-span-4',
           roundedExtra: 'max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]',
         },
