@@ -65,8 +65,8 @@ export const arcis = {
           roundedExtra: 'max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]',
         },
         {
-          image: '/images/arcis/bento-component-library.png',
-          imageClass: 'object-bottom',
+          image: '/images/arcis/bento-tokens.png',
+          imageClass: 'object-top',
           label: 'Tokens',
           title: 'Reusable assets that scale',
           body: 'Design tokens form the foundation of the visual system. Colors, surfaces, and text treatments are defined as reusable variables, allowing themes and components to adapt.',
@@ -74,8 +74,8 @@ export const arcis = {
           roundedExtra: 'lg:rounded-tr-[2rem]',
         },
         {
-          image: '/images/arcis/bento-component-library.png',
-          imageClass: 'object-[35%]',
+          image: '/images/arcis/bento-typography.png',
+          imageClass: 'object-top',
           label: 'Typography',
           title: 'Kerned and leaded for clarity',
           body: 'Editorial elegance paired with interface clarity. Playfair Display anchors expressive headings while structured hierarchy ensures readability.',
