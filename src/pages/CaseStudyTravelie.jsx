@@ -5,6 +5,7 @@ import ProblemStatementBranded from '../case-study/ProblemStatementBranded'
 import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
+import MoreWork from '../case-study/MoreWork'
 import PhoneFrame from '../case-study/PhoneFrame'
 import { travelie } from '../data/caseStudies/travelie'
 
@@ -159,6 +160,7 @@ export default function CaseStudyTravelie() {
         <OutcomeStats stats={travelie.stats} accentColor={accent} />
         <PrototypeLink url={travelie.prototypeUrl} projectName={travelie.title} accentColor={accent} />
       </div>
+      <MoreWork currentId="travelie" />
     </PageWrapper>
   )
 }

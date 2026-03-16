@@ -8,6 +8,7 @@ import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
 import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
+import MoreWork from '../case-study/MoreWork'
 import { orka } from '../data/caseStudies/orka'
 
 const accent = orka.accentColor
@@ -57,6 +58,7 @@ export default function CaseStudyOrka() {
         <OutcomeStats stats={orka.stats} accentColor={accent} />
         <PrototypeLink url={orka.prototypeUrl} projectName={orka.title} accentColor={accent} />
       </div>
+      <MoreWork currentId="orka" />
     </PageWrapper>
   )
 }

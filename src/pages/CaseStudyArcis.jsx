@@ -10,6 +10,7 @@ import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
 import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
+import MoreWork from '../case-study/MoreWork'
 import { arcis } from '../data/caseStudies/arcis'
 
 const accent = arcis.accentColor
@@ -59,6 +60,7 @@ export default function CaseStudyArcis() {
         <OutcomeStats stats={arcis.stats} accentColor={accent} />
         <PrototypeLink url={arcis.prototypeUrl} projectName={arcis.title} accentColor={accent} />
       </div>
+      <MoreWork currentId="arcis" />
     </PageWrapper>
   )
 }

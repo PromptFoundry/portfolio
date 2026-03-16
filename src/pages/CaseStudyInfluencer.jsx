@@ -10,6 +10,7 @@ import ResearchProcess from '../case-study/ResearchProcess'
 import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
+import MoreWork from '../case-study/MoreWork'
 import { influencer } from '../data/caseStudies/influencer'
 
 const accent = influencer.accentColor
@@ -60,6 +61,7 @@ export default function CaseStudyInfluencer() {
         <OutcomeStats stats={influencer.stats} accentColor={accent} />
         <PrototypeLink url={influencer.prototypeUrl} projectName={influencer.title} accentColor={accent} />
       </div>
+      <MoreWork currentId="influencer" />
     </PageWrapper>
   )
 }
