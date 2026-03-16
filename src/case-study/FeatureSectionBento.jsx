@@ -81,7 +81,7 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
                 {tile.video ? (
                   <video
                     src={tile.video}
-                    className="h-80 w-full object-cover object-top"
+                    className="w-full"
                     autoPlay
                     loop
                     muted
