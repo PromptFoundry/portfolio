@@ -12,16 +12,16 @@ export default function ContactSection() {
         </h2>
         <div className="w-12 h-px mx-auto mb-6" style={{ backgroundColor: 'var(--color-accent)' }} />
         <p className="text-sm font-light leading-relaxed mb-10" style={{ color: 'var(--color-foreground-muted)' }}>
-          I'm currently open to new opportunities — whether that's a full-time role, a freelance project, or just a good conversation about design.
+          I'm currently available for freelance projects and collaborations. If you're building something interesting, I'd love to connect.
         </p>
         <a
-          href="mailto:chase@example.com"
+          href="mailto:chasehignight@gmail.com"
           className="inline-flex items-center gap-2 font-serif text-2xl font-light border-b pb-1 transition-colors"
           style={{ color: 'var(--color-foreground)', borderColor: 'var(--color-accent)' }}
           onMouseEnter={e => e.currentTarget.style.color = 'var(--color-accent)'}
           onMouseLeave={e => e.currentTarget.style.color = 'var(--color-foreground)'}
         >
-          chase@example.com <ArrowUpRight size={20} />
+          chasehignight@gmail.com <ArrowUpRight size={20} />
         </a>
       </div>
     </section>
