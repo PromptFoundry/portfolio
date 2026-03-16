@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/projects/:project/(.*)", "destination": "/projects/:project/index.html" },
+    { "source": "/projects/:project/((?!.*\\.).*)", "destination": "/projects/:project/index.html" },
     { "source": "/((?!.*\\.).*)", "destination": "/index.html" }
   ],
   "headers": [
