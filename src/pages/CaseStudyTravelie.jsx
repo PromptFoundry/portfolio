@@ -126,7 +126,7 @@ export default function CaseStudyTravelie() {
         tagline={travelie.tagline}
         category={travelie.category}
         heroImage={travelie.heroImage}
-        heroVideo="/videos/travelie.mp4"
+        heroVideo="https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/travelie.mp4"
         accentColor={accent}
       />
       <Overview

@@ -84,7 +84,7 @@ export const arcis = {
           roundedExtra: 'lg:rounded-bl-[2rem]',
         },
         {
-          video: '/videos/arcis-responsive-preview.mp4',
+          video: 'https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/arcis-responsive-preview.mp4',
           label: 'Responsive Preview',
           title: 'Dial in mobile experiences',
           body: 'Preview layouts across screen sizes and refine mobile behavior in real time. Components adapt fluidly to breakpoints so the interface feels intentional, balanced, and polished on every device.',

@@ -22,7 +22,7 @@ export default function CaseStudyInfluencer() {
         tagline={influencer.tagline}
         category={influencer.category}
         heroImage={influencer.heroImage}
-        heroVideo="/videos/creator.mp4"
+        heroVideo="https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/creator.mp4"
         accentColor={accent}
       />
       <Overview

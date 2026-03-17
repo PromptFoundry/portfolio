@@ -22,7 +22,7 @@ export default function CaseStudyArcis() {
         tagline={arcis.tagline}
         category={arcis.category}
         heroImage={arcis.heroImage}
-        heroVideo="/videos/arcis.mp4"
+        heroVideo="https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/arcis.mp4"
         accentColor={accent}
       />
       <Overview

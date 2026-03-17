@@ -20,7 +20,7 @@ export default function CaseStudyOrka() {
         tagline={orka.tagline}
         category={orka.category}
         heroImage={orka.heroImage}
-        heroVideo="/videos/orka.mp4"
+        heroVideo="https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/orka.mp4"
         accentColor={accent}
       />
       <Overview
