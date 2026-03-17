@@ -27,7 +27,7 @@ export const orka = {
     // ── Feature 2: AI Workflow Generation (Highlight) ──────────────────────
     {
       label: 'AI Workflow Generation',
-      headline: 'Describe it once. Get a full agent.',
+      headline: 'From idea to functional agent.',
       body: "Type a prompt — 'monitor brand mentions and alert the team when sentiment drops' — and Orka generates a complete multi-step agent: trigger, AI analysis node, memory store, condition branch, and output actions. The workflow streams into view in real time so you can follow the thinking as it builds.",
       image: '/images/orka/workflow-generated.png',
       imagePosition: 'right',
