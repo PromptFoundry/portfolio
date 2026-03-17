@@ -1,13 +1,13 @@
 import Tag from '../components/ui/Tag'
 import { ExternalLink } from 'lucide-react'
 
-export default function Overview({ role, timeline, tools, prototypeUrl }) {
+export default function Overview({ role, timeline, outcome, tools, prototypeUrl }) {
   return (
     <section className="border-b" style={{ borderColor: 'var(--color-border)' }}>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 divide-x-0 sm:divide-x" style={{ borderColor: 'var(--color-border)' }}>
         {[
           { label: 'Role', value: role },
-          { label: 'Timeline', value: timeline },
+          outcome ? { label: 'Outcome', value: outcome } : { label: 'Timeline', value: timeline },
           { label: 'Tools', value: tools.join(', ') },
         ].map(item => (
           <div key={item.label} className="px-6 md:px-8 py-6 md:py-8" style={{ borderColor: 'var(--color-border)' }}>

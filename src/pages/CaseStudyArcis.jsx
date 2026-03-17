@@ -27,7 +27,7 @@ export default function CaseStudyArcis() {
       />
       <Overview
         role={arcis.role}
-        timeline={arcis.timeline}
+        outcome="React-based design system and template builder"
         tools={arcis.tools}
         prototypeUrl={arcis.prototypeUrl}
       />
