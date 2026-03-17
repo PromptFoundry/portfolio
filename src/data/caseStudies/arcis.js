@@ -104,8 +104,8 @@ export const arcis = {
   ],
 
   stats: [
-    { value: '88',  label: 'Club properties', description: 'Private, resort, and daily-fee courses across the US' },
-    { value: '15+', label: 'Section types',   description: 'Each with 3–6 distinct layout variants' },
-    { value: '6',   label: 'Page templates',  description: 'Curated starting points, ready to configure and deploy' },
+    { value: '15+',  label: 'Modular Sections',      description: 'Flexible building blocks for composing new pages' },
+    { value: '40+',  label: 'Reusable Components',   description: 'Shared UI patterns used across layouts and templates' },
+    { value: '100+', label: 'Layout Combinations',   description: 'Pages assembled from reusable sections and templates' },
   ],
 }
