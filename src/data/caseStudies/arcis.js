@@ -38,7 +38,7 @@ export const arcis = {
       label: 'Page Configurator',
       headline: 'Drag, drop, and preview in real time.',
       body: 'A visual page builder lets teams compose full homepages without writing a line of code — choosing from curated templates, reordering sections via drag and drop, toggling visibility, swapping variants, and previewing the result at any viewport width.',
-      image: '/images/arcis/templates/dark/resort.png',
+      image: '/images/arcis/page-configurator.png',
       imagePosition: 'left',
       split: true,
       highlights: [
