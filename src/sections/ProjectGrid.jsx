@@ -78,7 +78,6 @@ function ProjectCard({ project }) {
       <div className="flex flex-col flex-1 p-5">
         <div className="flex items-start justify-between gap-2 mb-2">
           <Tag>{project.category}</Tag>
-          <span className="text-xs font-light flex-shrink-0" style={{ color: 'var(--color-foreground-muted)' }}>{project.year}</span>
         </div>
         <h3 className="font-serif text-xl font-light mb-2 mt-3" style={{ color: 'var(--color-foreground)' }}>
           {project.title}
