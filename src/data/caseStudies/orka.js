@@ -17,9 +17,9 @@ export const orka = {
   features: [
     // ── Feature 1: Dashboard (FeatureSection) ─────────────────────────────
     {
-      label: 'Agent Dashboard',
-      headline: 'All your agents in one place.',
-      body: 'The dashboard gives you a live overview of every agent — active, inactive, running, or draft. Execution counts, success rates, and last-run timestamps surface at a glance. Create a new agent or jump into an existing one in a single click.',
+      label: 'Workflow Builder',
+      headline: 'Build AI-powered workflows that think, decide, and act.',
+      body: 'Turn real events into intelligent flows. Start with a trigger, layer in AI and logic, and connect actions across your tools—everything runs as a coordinated system.',
       image: '/images/orka/dashboard.png',
       imagePosition: 'right',
     },
