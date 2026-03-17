@@ -53,8 +53,9 @@ export default function FeatureSectionSplit({ label, headline, body, image, high
         {/* Right: image — fills height, overflows right edge */}
         <div className="flex-1 relative">
           <div
-            className="absolute inset-0 rounded-xl overflow-hidden"
+            className="absolute inset-0 overflow-hidden"
             style={{
+              borderRadius: '1rem',
               right: '-200px',
               boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
             }}
