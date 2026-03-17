@@ -39,6 +39,7 @@ export const arcis = {
       headline: 'Drag, drop, and preview in real time.',
       body: 'A visual page builder lets teams compose full homepages without writing a line of code — choosing from curated templates, reordering sections via drag and drop, toggling visibility, swapping variants, and previewing the result at any viewport width.',
       image: '/images/arcis/page-configurator.png',
+      imageClass: 'object-cover object-left-top aspect-[4/3]',
       imagePosition: 'left',
       split: true,
       highlights: [
@@ -59,7 +60,7 @@ export const arcis = {
           image: '/images/arcis/bento-section-library.png',
           imageClass: 'object-top',
           label: 'Refined Section Design',
-          title: 'Curated to support club experiences',
+          title: 'Curated to support <em>all</em> club experiences',
           body: 'A modular collection of page sections designed for modern club websites. From hero moments to content blocks and galleries, each section is crafted to highlight amenities, events, and membership experiences while maintaining a refined, consistent layout.',
           colSpan: 'lg:col-span-4',
           roundedExtra: 'max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]',

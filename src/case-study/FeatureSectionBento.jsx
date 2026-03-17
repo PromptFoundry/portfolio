@@ -98,9 +98,9 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
                   <p className="text-[10px] font-semibold tracking-[0.3em] uppercase" style={{ color: accent }}>
                     {tile.label}
                   </p>
-                  <p className="mt-2 text-lg font-medium tracking-tight" style={{ color: 'var(--color-foreground)' }}>
-                    {tile.title}
-                  </p>
+                  <p className="mt-2 text-lg font-medium tracking-tight" style={{ color: 'var(--color-foreground)' }}
+                    dangerouslySetInnerHTML={{ __html: tile.title }}
+                  />
                   <p className="mt-2 max-w-lg text-sm leading-relaxed" style={{ color: 'var(--color-foreground-muted)' }}>
                     {tile.body}
                   </p>
