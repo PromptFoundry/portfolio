@@ -28,7 +28,7 @@ export const projects = [
     title: 'Orka',
     category: 'AI Product Design & Development',
     description: 'An AI agent builder that turns a plain-text description into a fully connected multi-step workflow — with streaming generation, a visual node canvas, and conversational editing.',
-    image: '/images/orka/dashboard.png',
+    image: '/images/orka/orka-home.png',
     video: 'https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/orka.mp4',
     href: '/work/orka',
     tools: ['React', 'TypeScript', 'Anthropic SDK'],
