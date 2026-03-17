@@ -56,7 +56,7 @@ export const arcis = {
       bento: true,
       bentoTiles: [
         {
-          image: '/images/arcis/bento-augusta-theme.png',
+          image: '/images/arcis/bento-section-library.png',
           imageClass: 'object-top',
           label: 'Refined Section Design',
           title: 'Curated to support club experiences',
