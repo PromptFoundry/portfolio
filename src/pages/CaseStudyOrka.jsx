@@ -5,7 +5,6 @@ import ProblemStatementBranded from '../case-study/ProblemStatementBranded'
 import FeatureSection from '../case-study/FeatureSection'
 import FeatureSectionHighlight from '../case-study/FeatureSectionHighlight'
 import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
-import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
 import MoreWork from '../case-study/MoreWork'
@@ -51,9 +50,6 @@ export default function CaseStudyOrka() {
             : f.split
               ? <FeatureSectionSplit key={i} {...f} accentColor={accent} />
               : <FeatureSection key={i} {...f} index={i} accentColor={accent} />
-        )}
-        {orka.gallery.length > 0 && (
-          <ScreenshotGallery images={orka.gallery} accentColor={accent} />
         )}
         <OutcomeStats stats={orka.stats} accentColor={accent} />
         <PrototypeLink url={orka.prototypeUrl} projectName={orka.title} accentColor={accent} />

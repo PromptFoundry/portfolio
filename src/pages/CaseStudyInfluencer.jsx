@@ -7,7 +7,6 @@ import FeatureSectionHighlight from '../case-study/FeatureSectionHighlight'
 import FeatureSectionBento from '../case-study/FeatureSectionBento'
 import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
 import ResearchProcess from '../case-study/ResearchProcess'
-import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
 import MoreWork from '../case-study/MoreWork'
@@ -57,7 +56,6 @@ export default function CaseStudyInfluencer() {
                 : <FeatureSection key={i} {...f} index={i} accentColor={accent} />
         )}
         {/* <ResearchProcess accentColor={accent} /> */}
-        <ScreenshotGallery images={influencer.gallery} accentColor={accent} />
         <OutcomeStats stats={influencer.stats} accentColor={accent} />
         <PrototypeLink url={influencer.prototypeUrl} projectName={influencer.title} accentColor={accent} />
       </div>

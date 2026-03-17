@@ -2,7 +2,6 @@ import PageWrapper from '../components/layout/PageWrapper'
 import CaseStudyHero from '../case-study/CaseStudyHero'
 import Overview from '../case-study/Overview'
 import ProblemStatementBranded from '../case-study/ProblemStatementBranded'
-import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
 import MoreWork from '../case-study/MoreWork'
@@ -156,7 +155,6 @@ export default function CaseStudyTravelie() {
           <MobileFeatureSection key={i} feature={f} index={i} phone={FEATURE_PHONES[i]} />
         ))}
 
-        <ScreenshotGallery images={travelie.gallery} accentColor={accent} />
         <OutcomeStats stats={travelie.stats} accentColor={accent} />
         <PrototypeLink url={travelie.prototypeUrl} projectName={travelie.title} accentColor={accent} />
       </div>

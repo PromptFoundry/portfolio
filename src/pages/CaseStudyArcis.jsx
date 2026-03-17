@@ -7,7 +7,6 @@ import FeatureSectionHighlight from '../case-study/FeatureSectionHighlight'
 import TemplateShowcase from '../case-study/TemplateShowcase'
 import FeatureSectionBento from '../case-study/FeatureSectionBento'
 import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
-import ScreenshotGallery from '../case-study/ScreenshotGallery'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
 import MoreWork from '../case-study/MoreWork'
@@ -56,7 +55,6 @@ export default function CaseStudyArcis() {
                 ? <FeatureSectionBento key={i} {...f} tiles={f.bentoTiles} accentColor={accent} />
                 : <FeatureSection key={i} {...f} index={i} accentColor={accent} />
         )}
-        <ScreenshotGallery images={arcis.gallery} accentColor={accent} />
         <OutcomeStats stats={arcis.stats} accentColor={accent} />
         <PrototypeLink url={arcis.prototypeUrl} projectName={arcis.title} accentColor={accent} />
       </div>
