@@ -27,7 +27,7 @@ export default function CaseStudyInfluencer() {
       />
       <Overview
         role={influencer.role}
-        outcome="All in one campaign management app"
+        outcome="All-in-one campaign management platform"
         tools={influencer.tools}
         prototypeUrl={influencer.prototypeUrl}
       />
