@@ -3,7 +3,7 @@ import { Sparkles, PieChart, FileText } from 'lucide-react'
 
 const icons = [Sparkles, PieChart, FileText]
 
-export default function FeatureSectionSplit({ label, headline, body, image, embedUrl, highlights = [], accentColor }) {
+export default function FeatureSectionSplit({ label, headline, body, image, imageClass, embedUrl, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
   const [embedHeight, setEmbedHeight] = useState(480)
 
@@ -86,15 +86,20 @@ export default function FeatureSectionSplit({ label, headline, body, image, embe
               />
             </div>
           ) : (
-            <img
-              src={image}
-              alt={headline}
-              className="w-full max-w-none rounded-xl md:-mr-4 lg:mr-0"
+            <div
+              className="w-full max-w-none rounded-xl overflow-hidden md:-mr-4 lg:mr-0"
               style={{
                 boxShadow: '0 20px 50px -12px rgba(0,0,0,0.3)',
                 outline: '1px solid rgba(0,0,0,0.08)',
+                aspectRatio: '4/3',
               }}
-            />
+            >
+              <img
+                src={image}
+                alt={headline}
+                className={`w-full h-full object-cover object-top ${imageClass || ''}`}
+              />
+            </div>
           )}
         </div>
       </div>
