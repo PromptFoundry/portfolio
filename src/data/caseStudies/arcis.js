@@ -60,7 +60,7 @@ export const arcis = {
           image: '/images/arcis/bento-section-library.png',
           imageClass: 'object-top',
           label: 'Refined Section Design',
-          title: 'Curated to support <em>all</em> club experiences',
+          title: 'Curated to support <em class="font-serif font-light">all</em> club experiences',
           body: 'A modular collection of page sections designed for modern club websites. From hero moments to content blocks and galleries, each section is crafted to highlight amenities, events, and membership experiences while maintaining a refined, consistent layout.',
           colSpan: 'lg:col-span-4',
           roundedExtra: 'max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]',
