@@ -4,7 +4,7 @@ const HIGHLIGHT_ICONS = [
   '/images/arcis/icon-modal.png',
 ]
 
-export default function FeatureSectionSplit({ label, headline, body, image, highlights = [], accentColor }) {
+export default function FeatureSectionSplit({ label, headline, body, image, embedUrl, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
@@ -50,21 +50,29 @@ export default function FeatureSectionSplit({ label, headline, body, image, high
           )}
         </div>
 
-        {/* Right: image — fills height, overflows right edge */}
+        {/* Right: image or embed — fills height, overflows right edge */}
         <div className="flex-1 relative">
           <div
             className="absolute inset-0 overflow-hidden"
             style={{
               borderRadius: '1rem',
-              right: '-200px',
+              right: embedUrl ? '0' : '-200px',
               boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
             }}
           >
-            <img
-              src={image}
-              alt={headline}
-              className="w-full h-full object-cover object-left-top"
-            />
+            {embedUrl ? (
+              <iframe
+                src={embedUrl}
+                title={headline}
+                className="w-full h-full border-0"
+              />
+            ) : (
+              <img
+                src={image}
+                alt={headline}
+                className="w-full h-full object-cover object-left-top"
+              />
+            )}
           </div>
         </div>
 
