@@ -1,7 +1,7 @@
 const HIGHLIGHT_ICONS = [
-  '/images/arcis/icon-template.png',
-  '/images/arcis/icon-drag.png',
-  '/images/arcis/icon-modal.png',
+  '/images/arcis/icon-template.svg',
+  '/images/arcis/icon-drag.svg',
+  '/images/arcis/icon-modal.svg',
 ]
 
 export default function FeatureSectionSplit({ label, headline, body, image, embedUrl, highlights = [], accentColor }) {

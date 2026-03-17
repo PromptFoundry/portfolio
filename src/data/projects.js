@@ -4,7 +4,7 @@ export const projects = [
     title: 'Arcis Golf',
     category: 'Design System & UI Kit',
     description: 'A comprehensive component library and page configurator built for a premium private golf club brand — covering navigation, heroes, galleries, membership pricing, and more.',
-    image: '/images/arcis/templates/dark/classic.png',
+    image: '/images/arcis/arcis-perspective.png',
     video: '/videos/arcis.mp4',
     href: '/work/arcis',
     tools: ['React', 'Tailwind CSS', 'Vite'],
