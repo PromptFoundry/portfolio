@@ -16,7 +16,7 @@ export const projects = [
     title: 'Creator Marketing Platform',
     category: 'Product Design',
     description: 'A full-featured SaaS platform connecting brands with creators — campaign management, analytics dashboards, and a creator discovery engine.',
-    image: '/images/influencer-marketing/dashboard.png',
+    image: '/images/influencer-marketing/creator-home.png',
     video: 'https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/creator.mp4',
     href: '/work/influencer-marketing',
     tools: ['Figma', 'React', 'TypeScript'],
