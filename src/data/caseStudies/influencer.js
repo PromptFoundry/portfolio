@@ -17,7 +17,7 @@ export const influencer = {
       label: 'Campaign Dashboard',
       headline: 'Every campaign. One view.',
       body: 'A centralized dashboard gives marketing managers a live view of all active campaigns — impressions, engagement, clicks, and sales data alongside a real-time feed of creator content. All the signal, none of the noise.',
-      image: '/images/influencer-marketing/dashboard.png',
+      image: '/images/influencer-marketing/campaign-dashboard-section.png',
       imagePosition: 'right',
       highlight: true,
       highlights: [
