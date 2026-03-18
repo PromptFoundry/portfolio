@@ -28,13 +28,13 @@ function ThreeUpShowcase() {
           className="text-[10px] font-semibold tracking-[0.4em] uppercase mb-4"
           style={{ color: accent }}
         >
-          Mobile First
+          AI Powered Travel
         </p>
         <h2
           className="font-serif text-3xl md:text-4xl font-light leading-snug"
           style={{ color: 'var(--color-foreground)' }}
         >
-          Designed for the phone in your pocket.
+          Less planning. More going.
         </h2>
       </div>
 
