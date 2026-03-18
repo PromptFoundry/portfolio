@@ -41,7 +41,7 @@ export const travelie = {
     { src: '/images/travelie/explore.png', alt: 'Explore packages and curated itineraries' },
   ],
   stats: [
-    { value: 'CORE EXPERIENCE', label: 'Discover, plan, and book in one seamless flow', description: 'Clear paths, no dead ends, no clutter' },
+    { value: 'FOCUS', label: 'Discover, plan, and book in one seamless flow', description: 'Clear paths, no dead ends, no clutter' },
     { value: 'AI', label: 'Intelligent Itineraries', description: 'Turn a simple prompt into a complete trip — optimized around your time, budget, and preferences' },
     { value: '100%', label: 'Mobile-First', description: 'Designed for travel, not desks. Fast, responsive, and reliable wherever you are' },
   ],
