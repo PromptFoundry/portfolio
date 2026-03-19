@@ -41,8 +41,8 @@ export const travelie = {
     { src: '/images/travelie/explore.png', alt: 'Explore packages and curated itineraries' },
   ],
   stats: [
-    { value: 'FOCUS', label: 'Discover, plan, and book in one seamless flow', description: 'Clear paths, no dead ends, no clutter' },
-    { value: 'AI', label: 'Intelligent Itineraries', description: 'Turn a simple prompt into a complete trip — optimized around your time, budget, and preferences' },
-    { value: '100%', label: 'AI Powered Travel', description: 'Less planning. More going.' },
+    { value: 'FOCUS', label: 'One place to plan the whole trip', description: 'Search, decide, and book without losing momentum.' },
+    { value: 'AI', label: 'Your trip, assembled in seconds', description: 'A single prompt becomes a complete, bookable itinerary.' },
+    { value: '100%', label: 'Speed where it matters', description: 'Spend less time planning, more time actually traveling.' },
   ],
 }
