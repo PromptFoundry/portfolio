@@ -5,3 +5,4 @@ public/videos/*.mov
 public/videos/*.mp4
 public/projects/arcis/*.mov
 public/projects/arcis/*.mp4
+.claude-memory/
