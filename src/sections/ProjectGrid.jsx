@@ -102,7 +102,7 @@ function ProjectCard({ project }) {
 
 export default function ProjectGrid() {
   return (
-    <section id="work" className="py-24 px-6" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section id="work" className="py-16 md:py-24 px-6" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-3" style={{ color: 'var(--color-foreground-muted)' }}>

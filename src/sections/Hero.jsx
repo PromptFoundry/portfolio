@@ -185,7 +185,7 @@ export default function Hero() {
         <p className="text-xs font-medium tracking-[0.5em] uppercase mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
           Product Designer & UI Developer
         </p>
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[1.1] mb-8">
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[1.1] mb-8">
           Crafting products<br />
           <em>people actually</em><br />
           want to use.
@@ -226,7 +226,7 @@ export default function Hero() {
         }
       `}</style>
       <div
-        className="absolute bottom-8 left-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 flex flex-col items-center gap-2"
         style={{ animation: 'scroll-bob 2.4s ease-in-out infinite', transform: 'translateX(-50%)' }}
       >
         {/* Mouse outline */}

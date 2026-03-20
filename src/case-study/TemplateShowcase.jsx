@@ -257,7 +257,7 @@ export default function TemplateShowcase() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '48px 0',
+        padding: 'clamp(24px, 4vw, 48px) 0',
         transition: 'background-color 0.4s ease',
       }}
     >
@@ -268,7 +268,7 @@ export default function TemplateShowcase() {
           position: 'relative',
           width: '92%',
           maxWidth: '1300px',
-          height: '580px',
+          height: 'clamp(280px, 60vw, 580px)',
           overflow: 'hidden',
           borderRadius: '10px',
           border: `1px solid ${border}`,

@@ -6,7 +6,7 @@ export default function ProblemStatementBranded({ headline, body, accentColor })
 
   return (
     <section
-      className="py-28 px-6 border-b relative overflow-hidden"
+      className="py-16 md:py-28 px-6 border-b relative overflow-hidden"
       style={{ background: bg, borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}
     >
       {/* Ambient glow */}

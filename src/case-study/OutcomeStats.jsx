@@ -4,7 +4,7 @@ export default function OutcomeStats({ stats = [], accentColor }) {
 
   return (
     <section
-      className="py-28 px-6 border-b relative overflow-hidden"
+      className="py-16 md:py-28 px-6 border-b relative overflow-hidden"
       style={{ background: bg, borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}
     >
       {/* Ambient glow */}
@@ -32,8 +32,8 @@ export default function OutcomeStats({ stats = [], accentColor }) {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x" style={{ borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}>
           {stats.map((s, i) => (
-            <div key={i} className="px-4 md:px-10 py-8 text-center" style={{ borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}>
-              <p className="font-serif text-5xl font-light mb-2" style={{ color: '#f5f3ff' }}>{s.value}</p>
+            <div key={i} className="px-3 sm:px-4 md:px-10 py-6 md:py-8 text-center" style={{ borderColor: `color-mix(in srgb, ${accent} 20%, transparent)` }}>
+              <p className="font-serif text-4xl sm:text-5xl font-light mb-2" style={{ color: '#f5f3ff' }}>{s.value}</p>
               <p className="text-xs font-semibold tracking-[0.3em] uppercase mb-2" style={{ color: accent }}>{s.label}</p>
               {s.description && (
                 <p className="text-xs font-light" style={{ color: 'rgba(245,243,255,0.5)' }}>{s.description}</p>

@@ -35,7 +35,7 @@ export default function ResearchProcess({ accentColor }) {
 
   return (
     <section
-      className="py-28 px-6 border-b overflow-hidden"
+      className="py-16 md:py-28 px-6 border-b overflow-hidden"
       style={{
         background: 'var(--color-surface, #0a0a0f)',
         borderColor: border,

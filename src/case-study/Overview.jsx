@@ -17,7 +17,7 @@ export default function Overview({ role, timeline, outcome, tools, prototypeUrl 
             <p className="text-sm font-light" style={{ color: 'var(--color-foreground)' }}>{item.value}</p>
           </div>
         ))}
-        <div className="px-6 md:px-8 py-6 md:py-8 flex flex-col justify-between" style={{ borderColor: 'var(--color-border)' }}>
+        <div className="px-6 md:px-8 py-6 md:py-8" style={{ borderColor: 'var(--color-border)' }}>
           <p className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-2" style={{ color: 'var(--color-foreground-muted)' }}>
             Prototype
           </p>

@@ -8,7 +8,7 @@ export default function BackButton() {
   return (
     <Link
       to="/#work"
-      className="fixed bottom-8 left-6 z-50 flex items-center gap-2.5 px-5 py-3 text-xs font-semibold tracking-widest uppercase transition-all duration-200 hover:gap-3.5"
+      className="fixed bottom-4 left-4 sm:bottom-8 sm:left-6 z-50 flex items-center gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 text-xs font-semibold tracking-widest uppercase transition-all duration-200 hover:gap-3.5"
       style={{
         backgroundColor: 'var(--color-surface)',
         color: 'var(--color-foreground)',

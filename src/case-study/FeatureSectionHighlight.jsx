@@ -7,7 +7,7 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
 
   return (
     <section
-      className="py-24 border-b"
+      className="py-16 md:py-24 border-b"
       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}
     >
       {/* Centered header */}
@@ -15,7 +15,7 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
         <p className="text-[10px] font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: accent }}>
           {label}
         </p>
-        <h3 className="font-serif text-4xl md:text-5xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
+        <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
           {headline}
         </h3>
         <div
@@ -28,7 +28,7 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
       </div>
 
       {/* Visual: custom component or screenshot */}
-      <div className={`relative overflow-hidden pt-16 ${customVisual ? '' : 'px-6'}`}>
+      <div className={`relative overflow-hidden pt-10 md:pt-16 ${customVisual ? '' : 'px-6'}`}>
         <div className={customVisual ? '' : 'max-w-5xl mx-auto'}>
           {customVisual ? customVisual : (
             <img
@@ -57,7 +57,7 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
 
       {/* Feature grid */}
       {highlights.length > 0 && (
-        <div className="max-w-6xl mx-auto px-6 mt-20">
+        <div className="max-w-6xl mx-auto px-6 mt-12 md:mt-20">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((feature, i) => {
               const Icon = icons[i % icons.length]

@@ -44,7 +44,7 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
 
   return (
     <section
-      className="py-24 border-b"
+      className="py-16 md:py-24 border-b"
       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}
     >
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -54,7 +54,7 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
           {label}
         </p>
         <h3
-          className="mt-3 max-w-lg font-serif text-4xl font-light leading-tight text-pretty md:text-5xl"
+          className="mt-3 max-w-lg font-serif text-3xl sm:text-4xl font-light leading-tight text-pretty md:text-5xl"
           style={{ color: 'var(--color-foreground)' }}
         >
           {headline}
@@ -81,7 +81,7 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
                 {tile.video ? (
                   <video
                     src={tile.video}
-                    className="h-80 w-full object-cover object-top"
+                    className="h-52 sm:h-72 lg:h-80 w-full object-cover object-top"
                     autoPlay
                     loop
                     muted
@@ -91,10 +91,10 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
                   <img
                     src={tile.image}
                     alt={tile.title}
-                    className={`h-80 w-full object-cover ${tile.imageClass || ''}`}
+                    className={`h-52 sm:h-72 lg:h-80 w-full object-cover ${tile.imageClass || ''}`}
                   />
                 )}
-                <div className="p-8 sm:p-10">
+                <div className="p-5 sm:p-8 lg:p-10">
                   <p className="text-[10px] font-semibold tracking-[0.3em] uppercase" style={{ color: accent }}>
                     {tile.label}
                   </p>

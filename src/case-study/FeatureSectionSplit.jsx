@@ -1,26 +1,49 @@
-const HIGHLIGHT_ICONS = [
-  '/images/arcis/icon-template.svg',
-  '/images/arcis/icon-drag.svg',
-  '/images/arcis/icon-modal.svg',
-]
+import { useEffect, useRef, useState } from 'react'
+import { Sparkles, PieChart, FileText, Users, Zap, BarChart2 } from 'lucide-react'
+
+const HIGHLIGHT_ICONS = [Sparkles, PieChart, FileText, Users, Zap, BarChart2]
+
+function AutoHeightIframe({ src, title }) {
+  const [height, setHeight] = useState(500)
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.data?.type === 'campaign-demo-height' && e.data.height > 0) {
+        setHeight(e.data.height + 32)
+      }
+    }
+    window.addEventListener('message', handler)
+    return () => window.removeEventListener('message', handler)
+  }, [])
+
+  return (
+    <iframe
+      src={src}
+      title={title}
+      className="w-full border-0 block"
+      style={{ height: `${height}px` }}
+      scrolling="no"
+    />
+  )
+}
 
 export default function FeatureSectionSplit({ label, headline, body, image, embedUrl, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
     <section
-      className="overflow-hidden border-b"
+      className="overflow-x-hidden border-b"
       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex items-stretch gap-16 py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-stretch gap-10 md:gap-16 py-16 md:py-24">
 
         {/* Left: text */}
-        <div className="w-1/2 shrink-0 max-w-lg">
+        <div className="w-full md:w-1/2 md:shrink-0 md:max-w-lg">
           <p className="text-[10px] font-semibold tracking-[0.4em] uppercase" style={{ color: accent }}>
             {label}
           </p>
           <h3
-            className="mt-8 font-serif text-4xl md:text-5xl font-light leading-tight text-pretty"
+            className="mt-8 font-serif text-3xl sm:text-4xl md:text-5xl font-light leading-tight text-pretty"
             style={{ color: 'var(--color-foreground)' }}
           >
             {headline}
@@ -31,27 +54,41 @@ export default function FeatureSectionSplit({ label, headline, body, image, embe
           </p>
           {highlights.length > 0 && (
             <dl className="mt-10 flex flex-col gap-8">
-              {highlights.map((feature, i) => (
-                <div key={feature.name} className="relative pl-9">
-                  <img
-                    src={HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length]}
-                    alt=""
-                    className="absolute left-1 top-0.5 w-4 h-4"
-                  />
-                  <dt className="text-sm font-semibold" style={{ color: 'var(--color-foreground)' }}>
-                    {feature.name}
-                  </dt>
-                  <dd className="mt-1 text-sm font-light leading-relaxed" style={{ color: 'var(--color-foreground-muted)' }}>
-                    {feature.description}
-                  </dd>
-                </div>
-              ))}
+              {highlights.map((feature, i) => {
+                const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length]
+                return (
+                  <div key={feature.name} className="relative pl-9">
+                    <Icon size={16} className="absolute left-1 top-0.5" style={{ color: accent }} />
+                    <dt className="text-sm font-semibold" style={{ color: 'var(--color-foreground)' }}>
+                      {feature.name}
+                    </dt>
+                    <dd className="mt-1 text-sm font-light leading-relaxed" style={{ color: 'var(--color-foreground-muted)' }}>
+                      {feature.description}
+                    </dd>
+                  </div>
+                )
+              })}
             </dl>
           )}
         </div>
 
-        {/* Right: image or embed — fills height, overflows right edge */}
-        <div className="flex-1 relative">
+        {/* Mobile */}
+        <div
+          className="md:hidden w-full overflow-hidden rounded-2xl p-4"
+          style={{
+            aspectRatio: embedUrl ? undefined : '16/9',
+            backgroundColor: embedUrl ? '#030712' : undefined,
+            boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
+          }}
+        >
+          {embedUrl
+            ? <AutoHeightIframe src={embedUrl} title={headline} />
+            : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+          }
+        </div>
+
+        {/* Desktop: overflow effect */}
+        <div className="hidden md:block flex-1 relative">
           <div
             className="absolute inset-0 overflow-hidden"
             style={{
@@ -60,19 +97,10 @@ export default function FeatureSectionSplit({ label, headline, body, image, embe
               boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
             }}
           >
-            {embedUrl ? (
-              <iframe
-                src={embedUrl}
-                title={headline}
-                className="w-full h-full border-0"
-              />
-            ) : (
-              <img
-                src={image}
-                alt={headline}
-                className="w-full h-full object-cover object-left-top"
-              />
-            )}
+            {embedUrl
+              ? <AutoHeightIframe src={embedUrl} title={headline} />
+              : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+            }
           </div>
         </div>
 

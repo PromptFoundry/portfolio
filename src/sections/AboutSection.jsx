@@ -4,8 +4,8 @@ const skills = ['Product Design', 'UI Development', 'Design Systems', 'React', '
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 px-6 border-t" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-16 md:py-24 px-6 border-t" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Headshot */}
         <div className="aspect-[4/5] overflow-hidden">
           <img
@@ -20,7 +20,7 @@ export default function AboutSection() {
           <p className="text-xs font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
             About Me
           </p>
-          <h2 className="font-serif text-4xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
+          <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
             Designer who codes.<br />Developer who designs.
           </h2>
           <div className="w-12 h-px mb-6" style={{ backgroundColor: 'var(--color-accent)' }} />
