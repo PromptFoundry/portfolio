@@ -2,7 +2,7 @@ import { BarChart2, ImageIcon, ListChecks, Users, DollarSign, Bell } from 'lucid
 
 const icons = [BarChart2, ImageIcon, ListChecks, Users, DollarSign, Bell]
 
-export default function FeatureSectionHighlight({ label, headline, body, image, highlights = [], accentColor, customVisual }) {
+export default function FeatureSectionHighlight({ label, headline, body, image, video, highlights = [], accentColor, customVisual }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
@@ -27,28 +27,30 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
         </p>
       </div>
 
-      {/* Visual: custom component or screenshot */}
-      <div className={`relative overflow-hidden pt-10 md:pt-16 ${customVisual ? '' : 'px-6'}`}>
+      {/* Visual: custom component, video, or screenshot */}
+      <div className={`pt-10 md:pt-16 ${customVisual ? '' : 'px-6'}`}>
         <div className={customVisual ? '' : 'max-w-5xl mx-auto'}>
-          {customVisual ? customVisual : (
+          {customVisual ? customVisual : video ? (
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-xl shadow-2xl"
+              style={{
+                boxShadow: '0 25px 50px -12px rgba(0,0,0,0.35)',
+                outline: '1px solid rgba(0,0,0,0.08)',
+              }}
+            />
+          ) : (
             <img
               src={image}
               alt={headline}
               className="w-full rounded-xl shadow-2xl"
               style={{
-                marginBottom: '-8%',
                 boxShadow: '0 25px 50px -12px rgba(0,0,0,0.35)',
                 outline: '1px solid rgba(0,0,0,0.08)',
-              }}
-            />
-          )}
-          {!customVisual && (
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0"
-              style={{
-                height: '40%',
-                background: 'linear-gradient(to top, var(--color-surface), transparent)',
               }}
             />
           )}

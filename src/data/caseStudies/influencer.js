@@ -43,6 +43,21 @@ export const influencer = {
       ],
     },
     {
+      label: 'Creator Discovery',
+      headline: 'Creating the right collaboration has never been easier',
+      body: 'A full creator database with rich profiles, audience data, and platform analytics — so you can surface the right creators before you ever send an outreach message.',
+      image: '/images/influencer-marketing/creators.png',
+      screenshot: true,
+      features: [
+        { name: 'Unified creator profiles.', description: 'Every creator\'s platform presence, audience breakdown, and past brand work in one place.' },
+        { name: 'Audience demographics.', description: 'Age, location, gender, and interest data for each creator\'s audience — not just follower count.' },
+        { name: 'Engagement analytics.', description: 'Real engagement rate, average views, and performance trends across all platforms.' },
+        { name: 'Brand affinity signals.', description: 'Surface creators who have organically promoted products in your category.' },
+        { name: 'Saved lists.', description: 'Organize creators into shortlists by campaign, niche, or tier for faster team collaboration.' },
+        { name: 'Instant outreach.', description: 'Move from discovery to outreach in one click — no copy-pasting profiles across tools.' },
+      ],
+    },
+    {
       label: 'Creator Scoring',
       headline: 'Find the right voice for every campaign.',
       body: 'Score and rank creators against your campaign criteria. Match scores reflect audience demographics, engagement rate, brand fit, and past performance — so every outreach decision is backed by data.',

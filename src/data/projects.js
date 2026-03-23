@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 'arcis',
-    title: 'Arcis Golf',
+    title: 'Arcis',
     category: 'Design System & UI Kit',
     description: 'A comprehensive component library and page configurator built for a premium private golf club brand — covering navigation, heroes, galleries, membership pricing, and more.',
     image: '/images/arcis/arcis-perspective.png',
@@ -34,6 +34,17 @@ export const projects = [
     tools: ['React', 'TypeScript', 'Anthropic SDK'],
     year: '2025',
     prototypeUrl: '/projects/orka/',
+  },
+  {
+    id: 'savora',
+    title: 'Savora',
+    category: 'AI Product Design & Development',
+    description: 'An AI recipe generator that turns natural language into immersive, step-by-step cooking experiences — with voice interaction, adaptive food photography, and real-time AI generation.',
+    image: '/images/savora/savora-tablet.png',
+    video: 'https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/savora.mp4',
+    href: '/work/savora',
+    tools: ['React', 'TypeScript', 'OpenAI API'],
+    year: '2025',
   },
   {
     id: 'travelie',

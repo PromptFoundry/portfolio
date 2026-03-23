@@ -14,7 +14,7 @@ export default function CaseStudyHero({ title, tagline, category, heroImage, her
           className="absolute inset-0 w-full h-full object-cover opacity-30"
           style={{ pointerEvents: 'none' }}
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideo} />
         </video>
       )}
 

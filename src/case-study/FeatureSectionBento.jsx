@@ -1,25 +1,25 @@
 // Default tiles for the Influencer Marketing case study
 const INFLUENCER_TILES = [
   {
-    image: '/images/influencer-marketing/bento-top-left.png',
-    imageClass: 'object-left',
-    label: 'Match Scoring',
-    title: 'Every creator, precisely ranked',
-    body: 'Score your entire creator pool against campaign criteria in seconds. Match percentages surface real fit — not just follower count — so you always know who to contact first.',
+    image: '/images/influencer-marketing/top left.png',
+    imageClass: 'object-left-top',
+    label: 'Campaign Analytics',
+    title: "Know what's driving results",
+    body: 'All your campaign data, finally in one place. Spot top-performing creators, channels, and content instantly — and double down on what works. Less guessing. More scaling.',
     colSpan: 'lg:col-span-4',
     roundedExtra: 'max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]',
   },
   {
-    image: '/images/influencer-marketing/bento-top-right.png',
+    image: '/images/influencer-marketing/top right.png',
     imageClass: '',
-    label: 'Scoring Signals',
-    title: 'Five dimensions, one score',
-    body: 'Engagement rate, audience fit, brand alignment, content quality, and past performance — each weighted by your campaign goals.',
+    label: 'Content Calendar',
+    title: 'Everything, perfectly in sync',
+    body: 'Plan and manage every campaign in a single, unified calendar. Track posts, deadlines, milestones, and key events across creators and platforms — all in one view.',
     colSpan: 'lg:col-span-2',
     roundedExtra: 'lg:rounded-tr-[2rem]',
   },
   {
-    image: '/images/influencer-marketing/bento-bottom-left.png',
+    image: '/images/influencer-marketing/bottom left.png',
     imageClass: '',
     label: 'Audience Fit',
     title: "Know who's actually watching",
@@ -28,11 +28,11 @@ const INFLUENCER_TILES = [
     roundedExtra: 'lg:rounded-bl-[2rem]',
   },
   {
-    image: '/images/influencer-marketing/bento-bottom-right.png',
-    imageClass: 'object-left',
-    label: 'Targeted Outreach',
-    title: 'Your shortlist, built by data',
-    body: 'Sort and filter by any signal. Surface your top creators, compare side by side, and move to outreach without leaving the platform.',
+    image: '/images/influencer-marketing/bottom right.png',
+    imageClass: 'object-center-top',
+    label: 'Messaging & Approvals',
+    title: 'All communication, one place',
+    body: 'Message creators, review content, and approve deliverables without leaving the platform. Every conversation tied to its campaign — so nothing gets lost and everything stays on track.',
     colSpan: 'lg:col-span-4',
     roundedExtra: 'max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]',
   },
@@ -45,7 +45,7 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
   return (
     <section
       className="py-16 md:py-24 border-b"
-      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}
+      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}
     >
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
 
@@ -73,9 +73,9 @@ export default function FeatureSectionBento({ label, headline, body, accentColor
               <div
                 className={`w-full overflow-hidden rounded-xl ${tile.roundedExtra}`}
                 style={{
-                  backgroundColor: 'var(--color-surface-alt)',
+                  backgroundColor: 'var(--color-surface)',
                   boxShadow: '0 1px 3px rgba(0,0,0,0.4)',
-                  outline: '1px solid var(--color-border)',
+                  outline: '1px solid var(--color-surface)',
                 }}
               >
                 {tile.video ? (

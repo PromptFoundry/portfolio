@@ -4,12 +4,12 @@ import { Sparkles, PieChart, FileText, Users, Zap, BarChart2 } from 'lucide-reac
 const HIGHLIGHT_ICONS = [Sparkles, PieChart, FileText, Users, Zap, BarChart2]
 
 function AutoHeightIframe({ src, title }) {
-  const [height, setHeight] = useState(500)
+  const [height, setHeight] = useState(900)
 
   useEffect(() => {
     const handler = (e) => {
       if (e.data?.type === 'campaign-demo-height' && e.data.height > 0) {
-        setHeight(e.data.height + 32)
+        setHeight(e.data.height)
       }
     }
     window.addEventListener('message', handler)
@@ -27,7 +27,7 @@ function AutoHeightIframe({ src, title }) {
   )
 }
 
-export default function FeatureSectionSplit({ label, headline, body, image, embedUrl, highlights = [], accentColor }) {
+export default function FeatureSectionSplit({ label, headline, body, image, video, embedUrl, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
@@ -83,25 +83,33 @@ export default function FeatureSectionSplit({ label, headline, body, image, embe
         >
           {embedUrl
             ? <AutoHeightIframe src={embedUrl} title={headline} />
-            : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+            : video
+              ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-left-top" />
+              : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
           }
         </div>
 
         {/* Desktop: overflow effect */}
         <div className="hidden md:block flex-1 relative">
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{
-              borderRadius: '1rem',
-              right: embedUrl ? '0' : '-200px',
-              boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
-            }}
-          >
-            {embedUrl
-              ? <AutoHeightIframe src={embedUrl} title={headline} />
-              : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
-            }
-          </div>
+          {embedUrl ? (
+            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              <AutoHeightIframe src={embedUrl} title={headline} />
+            </div>
+          ) : video ? (
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
+            >
+              <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
+            </div>
+          ) : (
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
+            >
+              <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+            </div>
+          )}
         </div>
 
       </div>

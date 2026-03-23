@@ -1,8 +1,8 @@
 const stats = [
-  { value: '4', label: 'Case Studies' },
   { value: '10+', label: 'Years Experience' },
-  { value: '100M', label: 'Pixels Pushed' },
-  { value: '200K', label: 'Components Built' },
+  { value: 'Multi', label: 'AI Models & Stacks' },
+  { value: 'AI', label: 'Focused UX' },
+  { value: 'Full-Stack', label: 'Design → Code' },
 ]
 
 export default function StatsBar() {

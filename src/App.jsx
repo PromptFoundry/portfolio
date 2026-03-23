@@ -4,6 +4,7 @@ import CaseStudyArcis from './pages/CaseStudyArcis'
 import CaseStudyInfluencer from './pages/CaseStudyInfluencer'
 import CaseStudyTravelie from './pages/CaseStudyTravelie'
 import CaseStudyOrka from './pages/CaseStudyOrka'
+import CaseStudySavora from './pages/CaseStudySavora'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/work/influencer-marketing" element={<CaseStudyInfluencer />} />
         <Route path="/work/travelie" element={<CaseStudyTravelie />} />
         <Route path="/work/orka" element={<CaseStudyOrka />} />
+        <Route path="/work/savora" element={<CaseStudySavora />} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,5 +1,5 @@
 export const arcis = {
-  title: 'Arcis Golf',
+  title: 'Arcis',
   tagline: 'A design system built to unify 88 clubs under one visual language',
   category: 'Design System & UI Kit',
   heroImage: '/images/arcis/templates/dark/classic.png',
