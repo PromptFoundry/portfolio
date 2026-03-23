@@ -6,6 +6,7 @@ import FeatureSectionHighlight from '../case-study/FeatureSectionHighlight'
 import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
 import OutcomeStats from '../case-study/OutcomeStats'
 import MoreWork from '../case-study/MoreWork'
+import SavoraPromptVisual from '../case-study/SavoraPromptVisual'
 import { savora } from '../data/caseStudies/savora'
 
 const accent = savora.accentColor
@@ -44,7 +45,7 @@ export default function CaseStudySavora() {
       }}>
         {savora.features.map((f, i) =>
           f.highlight
-            ? <FeatureSectionHighlight key={i} {...f} accentColor={accent} />
+            ? <FeatureSectionHighlight key={i} {...f} accentColor={accent} customVisual={i === 0 ? <SavoraPromptVisual /> : undefined} />
             : f.split
               ? <FeatureSectionSplit key={i} {...f} accentColor={accent} />
               : null
