@@ -11,8 +11,8 @@ export default function Footer() {
         <div className="flex items-center gap-6">
           <Link to="/" className="text-xs font-medium tracking-widest uppercase" style={{ color: 'var(--color-foreground-muted)' }}>Work</Link>
           <a href="mailto:chase@example.com" className="text-xs font-medium tracking-widest uppercase" style={{ color: 'var(--color-foreground-muted)' }}>Contact</a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-foreground-muted)' }}><Github size={15} /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-foreground-muted)' }}><Linkedin size={15} /></a>
+          <a href="https://github.com/PromptFoundry" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-foreground-muted)' }}><Github size={15} /></a>
+          <a href="https://www.linkedin.com/in/hignight/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-foreground-muted)' }}><Linkedin size={15} /></a>
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ const skills = ['Product Design', 'UI Development', 'Design Systems', 'React', '
 export default function AboutSection() {
   return (
     <section id="about" className="py-16 md:py-24 px-6 border-t" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-center">
+      <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 items-center">
         {/* Headshot */}
         <div className="aspect-[4/5] overflow-hidden md:col-span-1">
           <img
@@ -25,10 +25,10 @@ export default function AboutSection() {
           </h2>
           <div className="w-12 h-px mb-6" style={{ backgroundColor: 'var(--color-accent)' }} />
           <p className="text-sm font-light leading-relaxed mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
-            I bridge the gap between design intent and technical execution — comfortable in Figma, equally comfortable in a codebase. I believe the best digital products come from designers who understand constraints and developers who respect aesthetics.
+            I like working where design meets implementation, making sure things come together the way they should.
           </p>
           <p className="text-sm font-light leading-relaxed mb-8" style={{ color: 'var(--color-foreground-muted)' }}>
-            My work spans design systems, SaaS products, and consumer apps — always pushing toward high-fidelity, production-ready output.
+            Most of my work lives in design systems, SaaS, and consumer apps, with a focus on building things that feel right, not overly designed.
           </p>
           <div className="flex flex-wrap gap-2">
             {skills.map(s => <Tag key={s}>{s}</Tag>)}
