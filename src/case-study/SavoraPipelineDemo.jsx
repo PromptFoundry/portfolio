@@ -40,6 +40,7 @@ const RECIPES = [
     prep: '10 min', cook: '20 min', total: '30 min',
     image: '/images/savora/chickpea-bowl.jpg',
     lottie: bowlAnimation,
+    lottieScale: 0.65,
   },
   {
     name:  'Triple Stack Smash Burger',
