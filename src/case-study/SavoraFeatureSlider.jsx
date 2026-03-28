@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const INTERVAL = 5000
+const INTERVAL = 9000
 
 // Map each feature index to an app screenshot
 const IMAGES = [
@@ -67,6 +67,7 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
             style={{
               width: '100%',
               display: 'block',
+              objectFit: 'contain',
               animation: 'sfImgIn 0.6s ease',
             }}
           />
