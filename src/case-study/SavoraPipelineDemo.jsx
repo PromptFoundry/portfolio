@@ -151,7 +151,7 @@ function Step1({ typedText = '', recipeName = '' }) {
   return (
     <div style={{
       position: 'absolute', inset: 0,
-      backgroundColor: 'white',
+      backgroundColor: 'transparent',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'flex-start',
       overflow: 'hidden',
@@ -227,8 +227,9 @@ function Step2({ phase }) {
   return (
     <div style={{
       position: 'absolute', inset: 0,
-      backgroundColor: 'white',
+      backgroundColor: 'transparent',
       overflow: 'hidden',
+      borderRadius: '1rem',
       animation: 'savoraFade 0.3s ease',
     }}>
       {/* Lottie — top: -3.5% mirrors Figma's -42px in 1187px frame */}
@@ -258,7 +259,7 @@ function Step2({ phase }) {
 
 function Step3({ recipe }) {
   return (
-    <div style={{ position: 'absolute', inset: 0, animation: 'savoraFade 0.3s ease' }}>
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '1rem', animation: 'savoraFade 0.3s ease' }}>
       {/* Blurred bg */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -341,7 +342,7 @@ function Step4({ lottie: animationData, lottieScale = 1 }) {
     rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
   })
   return (
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'savoraFade 0.25s ease' }}>
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '1rem', animation: 'savoraFade 0.25s ease' }}>
       <div className="savora-fill" style={{
         position: 'absolute', inset: 0,
         transform: lottieScale !== 1 ? `scale(${lottieScale})` : undefined,
@@ -411,12 +412,32 @@ export default function SavoraPipelineDemo() {
         onClick={onClick}
         style={{
           width: '100%', height: '100%',
-          position: 'relative', overflow: 'hidden',
-          backgroundColor: 'white',
+          position: 'relative',
+          backgroundColor: 'transparent',
           cursor: (step === 1 && !isTyping) || step === 3 ? 'pointer' : 'default',
           userSelect: 'none',
         }}
       >
+        {/* Blob background — hidden on step 3 where the recipe card is a rounded rect */}
+        {step !== 3 && (
+          <img
+            src="/images/savora/shape.svg"
+            alt=""
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'fill',
+              transform: 'scaleX(-1) rotate(3deg) scale(1.06)',
+              transformOrigin: 'center center',
+              pointerEvents: 'none',
+              userSelect: 'none',
+            }}
+          />
+        )}
+
         {step === 1 && <Step1 typedText={typedText} recipeName={recipe.name} />}
         {step === 2 && <Step2 phase={phase} />}
         {step === 3 && <Step3 recipe={recipe} />}

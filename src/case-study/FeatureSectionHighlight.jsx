@@ -57,8 +57,8 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
         </div>
       </div>
 
-      {/* Feature grid */}
-      {highlights.length > 0 && (
+      {/* Feature grid — hidden when a custom visual already surfaces highlights inline */}
+      {highlights.length > 0 && !customVisual && (
         <div className="max-w-6xl mx-auto px-6 mt-12 md:mt-20">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((feature, i) => {

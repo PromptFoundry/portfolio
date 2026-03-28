@@ -29,12 +29,12 @@ function AutoHeightIframe({ src, title }) {
   )
 }
 
-export default function FeatureSectionSplit({ label, headline, body, image, video, embedUrl, customVisual, highlights = [], accentColor }) {
+export default function FeatureSectionSplit({ label, headline, body, image, video, embedUrl, customVisual, rawVisual, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
     <section
-      className="overflow-x-hidden border-b"
+      className={`${rawVisual ? '' : 'overflow-x-hidden'} border-b`}
       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-stretch gap-10 lg:gap-16 py-16 lg:py-24">
@@ -76,7 +76,11 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
 
         {/* Stacked (below lg) */}
         <div className="lg:hidden w-full">
-          {customVisual ? (
+          {rawVisual ? (
+            <div style={{ position: 'relative', width: '100%' }}>
+              {rawVisual}
+            </div>
+          ) : customVisual ? (
             <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, 65vw, 620px)', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
               {customVisual}
             </div>
@@ -99,6 +103,10 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
           {embedUrl ? (
             <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
               <AutoHeightIframe src={embedUrl} title={headline} />
+            </div>
+          ) : rawVisual ? (
+            <div className="absolute inset-0" style={{ right: '-200px' }}>
+              {rawVisual}
             </div>
           ) : (
             <div

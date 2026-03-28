@@ -4,7 +4,7 @@ import cookingAnimation from '../assets/lottie-cooking.json'
 function CookingLottie() {
   const { View } = useLottie({ animationData: cookingAnimation, loop: true, autoplay: true })
   return (
-    <div style={{ width: 'clamp(120px, 38%, 400px)', height: 'clamp(120px, 22vw, 280px)', minWidth: 0, overflow: 'hidden' }}>
+    <div style={{ width: '62%', maxWidth: 340, minWidth: 180 }}>
       {View}
     </div>
   )
@@ -13,61 +13,67 @@ function CookingLottie() {
 export default function SavoraPromptVisual() {
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0 24px' }}>
-      <div
-        style={{
-          backgroundColor: '#ffffff',
-          width: '100%',
-          maxWidth: 900,
-          borderRadius: 24,
+      {/* Outer wrapper — sets the max width and gives room for the rotated blob to breathe */}
+      <div style={{ position: 'relative', width: '100%', maxWidth: 780 }}>
+
+        {/* Blob shape — slightly tilted like the mockup */}
+        <img
+          src="/images/savora/shape.svg"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'fill',
+            transform: 'rotate(-4deg) scale(1.04)',
+            transformOrigin: 'center center',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        />
+
+        {/* Content — stacked inside the blob */}
+        <div style={{
+          position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: 'clamp(20px, 4vw, 48px)',
-          paddingBottom: 'clamp(20px, 4vw, 48px)',
-          boxShadow: '0 25px 60px -12px rgba(0,0,0,0.45)',
-          outline: '1px solid rgba(0,0,0,0.06)',
-        }}
-      >
-        {/* Savora wordmark */}
-        <p
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontWeight: 700,
-            fontSize: 'clamp(28px, 4vw, 48px)',
-            lineHeight: 1.125,
-            color: '#ba4953',
-            letterSpacing: '0.015em',
-            margin: 0,
-          }}
-        >
-          Savora
-        </p>
+          paddingTop: 'clamp(32px, 6vw, 64px)',
+          paddingBottom: 'clamp(28px, 5vw, 56px)',
+          paddingLeft: 24,
+          paddingRight: 24,
+          // Aspect ratio close to the blob (723 × 673)
+          minHeight: 'clamp(320px, 58vw, 580px)',
+          justifyContent: 'space-between',
+        }}>
 
-        {/* Eyebrow */}
-        <p
-          style={{
-            fontFamily: "'Open Sans', sans-serif",
-            fontWeight: 600,
-            fontSize: 'clamp(9px, 1vw, 11px)',
-            letterSpacing: '3.3px',
-            textTransform: 'uppercase',
-            color: 'rgba(97, 106, 133, 0.6)',
-            marginTop: 6,
-            marginBottom: 0,
-          }}
-        >
-          Generative Cuisine
-        </p>
+          {/* Logotype + tagline */}
+          <img
+            src="/images/savora/logotype-tag.svg"
+            alt="Savora — Generative Cuisine"
+            style={{
+              width: 'clamp(120px, 22vw, 200px)',
+              display: 'block',
+              flexShrink: 0,
+            }}
+          />
 
-        {/* Lottie illustration */}
-        <CookingLottie />
+          {/* Lottie cooking illustration */}
+          <CookingLottie />
 
-        {/* Headline SVG */}
-        <img
-          src="/images/savora/whatshallwecook.svg"
-          alt="What shall we cook?"
-          style={{ width: '88%', maxWidth: 720, display: 'block' }}
-        />
+          {/* "What shall we cook?" headline */}
+          <img
+            src="/images/savora/whatshallwecook.svg"
+            alt="What shall we cook?"
+            style={{
+              width: 'clamp(220px, 68%, 540px)',
+              display: 'block',
+              flexShrink: 0,
+            }}
+          />
+        </div>
       </div>
     </div>
   )

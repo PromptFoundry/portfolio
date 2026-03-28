@@ -54,11 +54,10 @@ export default function CaseStudySavora() {
                 undefined
               } />
             : f.split
-              ? <FeatureSectionSplit key={i} {...f} accentColor={accent} customVisual={
-                  f.label === 'AI Generation Pipeline' ? <SavoraPipelineDemo /> :
-                  f.label === 'Kitchen Voice Assistant' ? <SavoraVoiceDemo /> :
-                  undefined
-                } />
+              ? <FeatureSectionSplit key={i} {...f} accentColor={accent}
+                  rawVisual={f.label === 'AI Generation Pipeline' ? <SavoraPipelineDemo /> : undefined}
+                  customVisual={f.label === 'Kitchen Voice Assistant' ? <SavoraVoiceDemo /> : undefined}
+                />
               : null
         )}
         <OutcomeStats stats={savora.stats} accentColor={accent} />

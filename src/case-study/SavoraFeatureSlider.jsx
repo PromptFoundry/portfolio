@@ -4,12 +4,16 @@ const INTERVAL = 9000
 
 // Map each feature index to an app screenshot
 const IMAGES = [
-  '/images/savora/overview-screen.png',   // Smarter image queries
-  '/images/savora/step-screen.png',        // Technique-aware steps
-  '/images/savora/savora-tablet.png',      // Adaptive layout
-  '/images/savora/step-screen.png',        // Direction-aware transitions
-  '/images/savora/overview-screen.png',    // Responsive by default
-  '/images/savora/step-screen.png',        // Focused step navigation
+  '/images/savora/0.png',
+  '/images/savora/1.png',
+  '/images/savora/2.png',
+  '/images/savora/3.png',
+  '/images/savora/4.png',
+  '/images/savora/5.png',
+  '/images/savora/6.png',
+  '/images/savora/7.png',
+  '/images/savora/8.png',
+  '/images/savora/9.png',
 ]
 
 const CSS = `
@@ -35,13 +39,16 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
       const pct = (elapsed / INTERVAL) * 100
       if (pct >= 100) {
         clearInterval(timer)
-        setIdx(i => (i + 1) % highlights.length)
+        setIdx(i => (i + 1) % IMAGES.length)
       } else {
         setProgress(pct)
       }
     }, 50)
     return () => clearInterval(timer)
-  }, [idx, highlights.length])
+  }, [idx, IMAGES.length])
+
+  const goPrev = () => setIdx(i => (i - 1 + IMAGES.length) % IMAGES.length)
+  const goNext = () => setIdx(i => (i + 1) % IMAGES.length)
 
   const feature = highlights[idx]
   const image   = IMAGES[idx] || IMAGES[0]
@@ -84,7 +91,7 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
               color: 'rgba(255,255,255,0.38)', marginBottom: 10,
               fontFamily: "'Inter', system-ui, sans-serif",
             }}>
-              {String(idx + 1).padStart(2, '0')} / {String(highlights.length).padStart(2, '0')}
+              {String(idx + 1).padStart(2, '0')} / {String(IMAGES.length).padStart(2, '0')}
             </div>
 
             {/* Feature name + description */}
@@ -110,7 +117,7 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
               </div>
             </div>
 
-            {/* Progress bar + dots row */}
+            {/* Progress bar + controls row */}
             <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 16 }}>
               {/* Progress bar */}
               <div style={{
@@ -129,7 +136,7 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
 
               {/* Dot indicators */}
               <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
-                {highlights.map((_, i) => (
+                {IMAGES.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setIdx(i)}
@@ -144,10 +151,81 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
                   />
                 ))}
               </div>
+
+              {/* Pagination arrows */}
+              <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+                <button
+                  onClick={goPrev}
+                  aria-label="Previous"
+                  style={{
+                    width: 28, height: 28, borderRadius: '50%',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    background: 'rgba(255,255,255,0.07)',
+                    color: 'rgba(255,255,255,0.7)',
+                    cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    transition: 'background 0.2s, border-color 0.2s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.14)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M6.5 2L3.5 5L6.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={goNext}
+                  aria-label="Next"
+                  style={{
+                    width: 28, height: 28, borderRadius: '50%',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    background: 'rgba(255,255,255,0.07)',
+                    color: 'rgba(255,255,255,0.7)',
+                    cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    transition: 'background 0.2s, border-color 0.2s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.14)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M3.5 2L6.5 5L3.5 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
         </div>
+      </div>
+
+      {/* View Project button */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
+        <a
+          href="/projects/savora/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            padding: '12px 28px',
+            borderRadius: 6,
+            backgroundColor: accentColor,
+            color: '#fff',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: 13,
+            fontWeight: 600,
+            letterSpacing: '0.04em',
+            textDecoration: 'none',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '0.85' }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '1' }}
+        >
+          View Project
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
       </div>
     </>
   )
