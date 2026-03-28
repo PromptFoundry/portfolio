@@ -63,36 +63,12 @@ export default function SavoraPromptVisual() {
       {/* Lottie illustration */}
       <CookingLottie />
 
-      {/* Headline: "What shall we cook?" */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-        <span
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontWeight: 600,
-            fontSize: 45,
-            lineHeight: '112px',
-            color: '#1e1f22',
-            letterSpacing: '-2.24px',
-            marginTop: 11,
-          }}
-        >
-          What shall
-        </span>
-        <span
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontWeight: 600,
-            fontStyle: 'italic',
-            fontSize: 88.722,
-            lineHeight: '152.875px',
-            color: '#ba4953',
-            letterSpacing: '-3.0575px',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          we cook?
-        </span>
-      </div>
+      {/* Headline SVG */}
+      <img
+        src="/images/savora/whatshallwecook.svg"
+        alt="What shall we cook?"
+        style={{ width: '90%', maxWidth: 780, display: 'block' }}
+      />
     </div>
     </div>
   )
