@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { useTheme } from '../../hooks/useTheme'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -24,6 +25,7 @@ export default function PageWrapper({ children }) {
       </main>
       <Footer />
       <BackButton />
+      <Analytics />
     </div>
   )
 }
