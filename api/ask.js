@@ -8,13 +8,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: true, answer: "Sorry, the AI assistant isn't configured." })
   }
 
-  let body = ''
-  await new Promise((resolve) => {
-    req.on('data', (chunk) => { body += chunk.toString() })
-    req.on('end', resolve)
-  })
-
-  const { question, recipeContext } = JSON.parse(body)
+  const { question, recipeContext } = req.body
 
   try {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {

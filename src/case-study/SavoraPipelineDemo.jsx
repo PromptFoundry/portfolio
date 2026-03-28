@@ -3,6 +3,9 @@ import { useLottie } from 'lottie-react'
 import cookingAnimation from '../assets/lottie-cooking.json'
 import loadingAnimation from '../assets/lottie-loading.json'
 import sushiAnimation from '../assets/lottie-sushi.json'
+import burgerAnimation from '../assets/lottie-burger.json'
+import pizzaAnimation from '../assets/lottie-pizza.json'
+import tacosAnimation from '../assets/lottie-tacos.json'
 
 const ACCENT   = '#af2c38'
 const SERIF    = "'Playfair Display', Georgia, serif"
@@ -16,6 +19,7 @@ const RECIPES = [
     note: 'Marinate 24–48 hrs*',
     prep: '10 min', cook: '12 min', total: '~30 min',
     image: '/images/savora/miso-cod.jpg',
+    lottie: sushiAnimation,
   },
   {
     name:  'Baja Shrimp Tacos',
@@ -24,6 +28,7 @@ const RECIPES = [
     note: 'Best served immediately',
     prep: '15 min', cook: '10 min', total: '25 min',
     image: '/images/savora/tacos.jpg',
+    lottie: tacosAnimation,
   },
   {
     name:  'Moroccan Chickpea Rice Bowl',
@@ -32,6 +37,7 @@ const RECIPES = [
     note: 'Vegan · gluten-free option',
     prep: '10 min', cook: '20 min', total: '30 min',
     image: '/images/savora/chickpea-bowl.jpg',
+    lottie: sushiAnimation,
   },
   {
     name:  'Triple Stack Smash Burger',
@@ -40,6 +46,7 @@ const RECIPES = [
     note: 'Cast iron skillet recommended',
     prep: '10 min', cook: '15 min', total: '25 min',
     image: '/images/savora/smash-burger.jpg',
+    lottie: burgerAnimation,
   },
   {
     name:  'Loaded Italian Calzone',
@@ -48,6 +55,7 @@ const RECIPES = [
     note: null,
     prep: '20 min', cook: '18 min', total: '~40 min',
     image: '/images/savora/carnitas-tacos.jpg',
+    lottie: pizzaAnimation,
   },
 ]
 
@@ -322,9 +330,9 @@ function Step3({ recipe }) {
 
 // ─── Step 4: Sushi ───────────────────────────────────────────────────────────
 
-function Step4() {
+function Step4({ lottie: animationData }) {
   const { View } = useLottie({
-    animationData: sushiAnimation,
+    animationData,
     loop: false,
     autoplay: true,
     rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
@@ -405,7 +413,7 @@ export default function SavoraPipelineDemo() {
         {step === 1 && <Step1 typedText={typedText} recipeName={recipe.name} />}
         {step === 2 && <Step2 phase={phase} />}
         {step === 3 && <Step3 recipe={recipe} />}
-        {step === 4 && <Step4 />}
+        {step === 4 && <Step4 lottie={recipe.lottie} />}
       </div>
     </>
   )

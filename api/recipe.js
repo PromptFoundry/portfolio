@@ -8,13 +8,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: true, message: 'OPENAI_API_KEY not set' })
   }
 
-  let body = ''
-  await new Promise((resolve) => {
-    req.on('data', (chunk) => { body += chunk.toString() })
-    req.on('end', resolve)
-  })
-
-  const { input } = JSON.parse(body)
+  const { input } = req.body
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
