@@ -263,32 +263,10 @@ export default function SavoraVoiceDemo() {
           background: 'linear-gradient(to bottom, rgba(18,16,14,0.55) 0%, rgba(18,16,14,0.15) 38%, rgba(246,245,242,0.97) 62%, #f6f5f2 100%)',
         }} />
 
-        {/* ── Header bar ── */}
-        <div style={{
-          position: 'relative', zIndex: 10,
-          height: 52,
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '0 24px',
-        }}>
-          <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12, fontWeight: 500 }}>← Overview</span>
-          <span style={{ color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
-            Rustic Italian Pasta
-          </span>
-          <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
-            {[0, 1, 2, 3, 4].map(i => (
-              <div key={i} style={{
-                width: 5, height: 5, borderRadius: '50%',
-                backgroundColor: i === stepIdx + 1 ? '#fff' : 'rgba(255,255,255,0.35)',
-                transition: 'background-color 0.5s',
-              }} />
-            ))}
-          </div>
-        </div>
-
         {/* ── Content card (slides up over image) ── */}
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0,
-          top: '44%',
+          top: '48%',
           zIndex: 5,
           display: 'flex', flexDirection: 'column',
         }}>
