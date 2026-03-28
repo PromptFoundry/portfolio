@@ -78,7 +78,7 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
         <div className="lg:hidden w-full">
           {customVisual
             ? (
-              <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', maxHeight: '420px', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, 65vw, 620px)', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
                 {customVisual}
               </div>
             )

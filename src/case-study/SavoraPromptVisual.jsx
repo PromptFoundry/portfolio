@@ -4,7 +4,7 @@ import cookingAnimation from '../assets/lottie-cooking.json'
 function CookingLottie() {
   const { View } = useLottie({ animationData: cookingAnimation, loop: true, autoplay: true })
   return (
-    <div style={{ width: 'clamp(120px, 38%, 400px)', minWidth: 0 }}>
+    <div style={{ width: 'clamp(120px, 38%, 400px)', height: 'clamp(120px, 22vw, 280px)', minWidth: 0, overflow: 'hidden' }}>
       {View}
     </div>
   )
@@ -26,7 +26,6 @@ export default function SavoraPromptVisual() {
           paddingBottom: 'clamp(20px, 4vw, 48px)',
           boxShadow: '0 25px 60px -12px rgba(0,0,0,0.45)',
           outline: '1px solid rgba(0,0,0,0.06)',
-          overflow: 'hidden',
         }}
       >
         {/* Savora wordmark */}

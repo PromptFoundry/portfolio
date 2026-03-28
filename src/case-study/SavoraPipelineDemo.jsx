@@ -317,7 +317,7 @@ function Step3({ recipe }) {
             <ShimmerButton
               label="Let's cook!"
               serif
-              style={{ width: '55%', maxWidth: 160, height: 40, flexShrink: 0, borderRadius: 3 }}
+              style={{ width: '100%', height: 40, flexShrink: 0, borderRadius: 3 }}
             />
           </div>
         </div>
