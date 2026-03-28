@@ -12,7 +12,7 @@ const EXAMPLES = [
     instruction: 'Stir in coconut milk and bring to a gentle simmer. Add fish sauce and a squeeze of lime. Taste and adjust seasoning before serving over jasmine rice.',
     question: "What if I don't have fresh Thai basil?",
     answer: "Regular basil works — it's sweeter and less peppery, but still holds up. Stir it in right at the end so it doesn't wilt and lose its flavor.",
-    imageQuery: 'thai green curry bowl coconut milk',
+    image: '/images/savora/voice-curry.jpg',
   },
   {
     recipe: 'Saffron Risotto',
@@ -21,7 +21,7 @@ const EXAMPLES = [
     instruction: 'Remove from heat and stir in cold butter and freshly grated Parmigiano-Reggiano. Let rest one minute, then plate immediately — risotto waits for no one.',
     question: 'How do I know when the risotto is done?',
     answer: "Drag a spoon through the pan — if the risotto slowly flows back, you're there. It should be loose and creamy, never stiff or gluey.",
-    imageQuery: 'creamy saffron risotto parmesan plate',
+    image: '/images/savora/voice-risotto.jpg',
   },
   {
     recipe: 'Pan-Seared Salmon',
@@ -30,7 +30,7 @@ const EXAMPLES = [
     instruction: 'Heat a stainless steel pan until smoking. Add oil, place salmon skin-side down, and press gently for 30 seconds. Do not move it for 4 minutes.',
     question: 'Should I cook the skin side first?',
     answer: "Yes — skin down in a screaming hot pan. Press gently the first 30 seconds, then leave it completely alone until the skin is golden and crispy.",
-    imageQuery: 'pan seared salmon crispy skin fillet plate',
+    image: '/images/savora/voice-salmon.jpg',
   },
   {
     recipe: 'Chocolate Lava Cake',
@@ -39,7 +39,7 @@ const EXAMPLES = [
     instruction: 'Melt dark chocolate and butter over a bain-marie. Whisk eggs and sugar until pale, then fold in the chocolate mixture and flour until just combined.',
     question: 'Can I make these ahead of time?',
     answer: "Yes — fill the ramekins, cover, and refrigerate up to 24 hours. Bake straight from cold and add 2 to 3 extra minutes to the time.",
-    imageQuery: 'chocolate lava cake molten center dessert',
+    image: '/images/savora/voice-lavacake.jpg',
   },
   {
     recipe: 'Braised Short Ribs',
@@ -48,7 +48,7 @@ const EXAMPLES = [
     instruction: 'Return seared ribs to the pot. Add red wine, beef stock, thyme, and bay leaves until the meat is three-quarters submerged. Cover and transfer to a 325°F oven for 3 hours.',
     question: 'My sauce is too thin — how do I fix it?',
     answer: "Whisk a tablespoon of cornstarch into cold water and stir it in, then simmer a few minutes. Or let it reduce uncovered — low and slow works every time.",
-    imageQuery: 'braised beef short ribs red wine plate',
+    image: '/images/savora/voice-shortribs.jpg',
   },
 ]
 
@@ -217,27 +217,7 @@ export default function SavoraVoiceDemo() {
   const [voiceState, setVoice]    = useState('idle')
   const [transcript, setTranscript] = useState('')
   const [answer, setAnswer]       = useState('')
-  const [images, setImages]       = useState(EXAMPLES.map(() => null))
-
   const ex = EXAMPLES[exIdx]
-
-  // Fetch Pexels images once on mount
-  useEffect(() => {
-    Promise.all(
-      EXAMPLES.map((e, i) =>
-        fetch(`/api/image?query=${encodeURIComponent(e.imageQuery)}&count=1`)
-          .then(r => r.json())
-          .then(d => ({ i, url: d.imageUrl || null }))
-          .catch(() => ({ i, url: null }))
-      )
-    ).then(results => {
-      setImages(prev => {
-        const next = [...prev]
-        results.forEach(({ i, url }) => { next[i] = url })
-        return next
-      })
-    })
-  }, [])
 
   // Demo sequence — cycles through all 5 examples
   useEffect(() => {
@@ -286,20 +266,18 @@ export default function SavoraVoiceDemo() {
       <style>{CSS}</style>
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', fontFamily: SANS }}>
 
-        {/* Full-bleed background image — only renders when Pexels has resolved */}
-        {images[exIdx] && (
-          <img
-            key={`${exIdx}-${images[exIdx]}`}
-            src={images[exIdx]}
-            alt=""
-            style={{
-              position: 'absolute', inset: 0,
-              width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center 55%',
-              animation: 'svImgFade 1.0s ease',
-            }}
-          />
-        )}
+        {/* Full-bleed background image */}
+        <img
+          key={exIdx}
+          src={ex.image}
+          alt=""
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center 55%',
+            animation: 'svImgFade 1.0s ease',
+          }}
+        />
 
         {/* Gradient: dark top → warm white bottom */}
         <div style={{
