@@ -295,7 +295,7 @@ export default function SavoraVoiceDemo() {
             style={{
               flex: 1,
               backgroundColor: '#f6f5f2',
-              borderRadius: '20px 20px 0 0',
+              borderRadius: 0,
               padding: '22px 26px 10px',
               display: 'flex', flexDirection: 'column', gap: 13,
               boxShadow: '0 -8px 40px rgba(0,0,0,0.18)',
