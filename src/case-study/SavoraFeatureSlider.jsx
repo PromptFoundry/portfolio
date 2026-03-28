@@ -64,17 +64,21 @@ export default function SavoraFeatureSlider({ highlights = [], accentColor = '#a
           boxShadow: '0 25px 60px -12px rgba(0,0,0,0.5)',
           outline: '1px solid rgba(255,255,255,0.06)',
           backgroundColor: '#0a0806',
+          aspectRatio: '16 / 10',
         }}>
 
-          {/* Screenshot — crossfades on change */}
+          {/* Screenshot — absolutely positioned so container never collapses on slide change */}
           <img
             key={idx}
             src={image}
             alt={feature?.name}
             style={{
+              position: 'absolute',
+              inset: 0,
               width: '100%',
-              display: 'block',
-              objectFit: 'contain',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
               animation: 'sfImgIn 0.6s ease',
             }}
           />
