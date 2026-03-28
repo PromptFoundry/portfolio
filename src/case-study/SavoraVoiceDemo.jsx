@@ -24,7 +24,7 @@ const STEPS = [
 const CSS = `
   @keyframes svPulseRing {
     0% { transform: scale(1); opacity: 0.65; }
-    100% { transform: scale(2.4); opacity: 0; }
+    100% { transform: scale(2.6); opacity: 0; }
   }
   @keyframes svDot {
     0%, 100% { transform: translateY(0); opacity: 0.35; }
@@ -35,7 +35,7 @@ const CSS = `
     50% { transform: scaleY(1); }
   }
   @keyframes svFadeUp {
-    from { opacity: 0; transform: translateY(5px); }
+    from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes svCursor {
@@ -43,12 +43,12 @@ const CSS = `
     50% { opacity: 0; }
   }
   @keyframes svSlideIn {
-    from { opacity: 0; transform: translateX(18px); }
+    from { opacity: 0; transform: translateX(16px); }
     to { opacity: 1; transform: translateX(0); }
   }
   @keyframes svIdlePulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(175,44,56,0.25); }
-    50% { box-shadow: 0 0 0 8px rgba(175,44,56,0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(175,44,56,0.22); }
+    50% { box-shadow: 0 0 0 9px rgba(175,44,56,0); }
   }
 `
 
@@ -91,7 +91,7 @@ function ThinkDots() {
         <div key={i} style={{
           width: 8, height: 8, borderRadius: '50%',
           backgroundColor: ACCENT,
-          animation: `svDot 0.85s ease-in-out ${i * 0.2}s infinite`,
+          animation: `svDot 0.9s ease-in-out ${i * 0.22}s infinite`,
         }} />
       ))}
     </div>
@@ -106,8 +106,8 @@ function VoiceZone({ state, transcript, answer }) {
           display: 'inline-flex', alignItems: 'center', gap: 8,
           backgroundColor: `rgba(175,44,56,0.07)`,
           border: `1px solid rgba(175,44,56,0.18)`,
-          borderRadius: 28, padding: '7px 16px',
-          animation: 'svIdlePulse 2.4s ease-in-out infinite',
+          borderRadius: 28, padding: '8px 18px',
+          animation: 'svIdlePulse 2.8s ease-in-out infinite',
         }}>
           <MicIcon size={13} color={ACCENT} />
           <span style={{ fontSize: 12, fontWeight: 600, color: ACCENT, fontFamily: SANS, letterSpacing: '0.01em' }}>Ask anything</span>
@@ -120,24 +120,24 @@ function VoiceZone({ state, transcript, answer }) {
     <div style={{
       backgroundColor: '#fff',
       border: '1px solid rgba(0,0,0,0.07)',
-      borderRadius: 12,
-      padding: '11px 14px',
-      display: 'flex', flexDirection: 'column', gap: 8,
-      boxShadow: '0 2px 14px rgba(0,0,0,0.07)',
-      animation: 'svFadeUp 0.25s ease',
+      borderRadius: 14,
+      padding: '12px 16px',
+      display: 'flex', flexDirection: 'column', gap: 9,
+      boxShadow: '0 4px 20px rgba(0,0,0,0.09)',
+      animation: 'svFadeUp 0.3s ease',
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
 
-        {/* Mic button with pulse rings */}
-        <div style={{ position: 'relative', width: 36, height: 36, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Mic with rings */}
+        <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {state === 'listening' && (
             <>
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.3s ease-out infinite' }} />
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.3s ease-out 0.45s infinite' }} />
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.5s ease-out infinite' }} />
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.5s ease-out 0.5s infinite' }} />
             </>
           )}
           <div style={{
-            width: 36, height: 36, borderRadius: '50%',
+            width: 38, height: 38, borderRadius: '50%',
             backgroundColor: ACCENT,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             position: 'relative', zIndex: 1,
@@ -146,7 +146,7 @@ function VoiceZone({ state, transcript, answer }) {
           </div>
         </div>
 
-        {/* Content */}
+        {/* State content */}
         <div style={{ flex: 1, minWidth: 0 }}>
           {state === 'listening' && (
             <div style={{ fontSize: 13, color: transcript ? '#1a1a18' : 'rgba(0,0,0,0.35)', fontStyle: transcript ? 'normal' : 'italic', fontFamily: SANS, lineHeight: 1.4 }}>
@@ -160,18 +160,16 @@ function VoiceZone({ state, transcript, answer }) {
           {state === 'speaking' && <Waveform />}
         </div>
 
-        {/* State label */}
         <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(0,0,0,0.28)', fontFamily: SANS, flexShrink: 0 }}>
           {state === 'listening' ? 'Listening' : state === 'thinking' ? 'Thinking' : 'Speaking'}
         </div>
       </div>
 
-      {/* Answer */}
       {answer && (
         <div style={{
-          fontSize: 12.5, color: '#3a3a38', lineHeight: 1.65,
-          paddingTop: 8, borderTop: '1px solid rgba(0,0,0,0.06)',
-          fontFamily: SANS, animation: 'svFadeUp 0.35s ease',
+          fontSize: 12.5, color: '#3a3a38', lineHeight: 1.7,
+          paddingTop: 9, borderTop: '1px solid rgba(0,0,0,0.06)',
+          fontFamily: SANS, animation: 'svFadeUp 0.4s ease',
         }}>
           {answer}
         </div>
@@ -195,37 +193,37 @@ export default function SavoraVoiceDemo() {
     let t = 0
 
     // ── Phase 1: Q&A ──────────────────────────────────────────────
-    t += 1600
+    t += 2800
     at(() => { setVoiceState('listening'); setTranscript('') }, t)
 
     Q.split('').forEach((_, i) => {
-      at(() => setTranscript(Q.slice(0, i + 1)), t + i * 72)
+      at(() => setTranscript(Q.slice(0, i + 1)), t + i * 100)
     })
-    t += Q.length * 72 + 550
+    t += Q.length * 100 + 900
 
     at(() => setVoiceState('thinking'), t)
-    t += 1300
+    t += 2000
 
     at(() => { setVoiceState('speaking'); setAnswer(A) }, t)
-    t += 3400
+    t += 5000
 
     at(() => { setVoiceState('idle'); setTranscript(''); setAnswer('') }, t)
-    t += 2000
+    t += 3000
 
     // ── Phase 2: Navigation command ───────────────────────────────
     at(() => { setVoiceState('listening'); setTranscript('') }, t)
 
     NAV.split('').forEach((_, i) => {
-      at(() => setTranscript(NAV.slice(0, i + 1)), t + i * 110)
+      at(() => setTranscript(NAV.slice(0, i + 1)), t + i * 160)
     })
-    t += NAV.length * 110 + 350
+    t += NAV.length * 160 + 600
 
     at(() => {
       setVoiceState('idle')
       setTranscript('')
       setStepIdx(1)
     }, t)
-    t += 2800
+    t += 4000
 
     // ── Reset & loop ───────────────────────────────────────────────
     at(() => {
@@ -234,7 +232,7 @@ export default function SavoraVoiceDemo() {
       setTranscript('')
       setAnswer('')
     }, t)
-    t += 300
+    t += 400
     at(() => setLoopKey(k => k + 1), t)
 
     return () => timers.forEach(clearTimeout)
@@ -245,93 +243,108 @@ export default function SavoraVoiceDemo() {
       <style>{CSS}</style>
       <div style={{
         position: 'absolute', inset: 0, overflow: 'hidden',
-        backgroundColor: '#f6f5f2', fontFamily: SANS,
-        display: 'flex', flexDirection: 'column',
+        fontFamily: SANS,
       }}>
+
+        {/* ── Full-bleed background image ── */}
+        <img
+          src="/images/savora/calzone.jpg"
+          alt=""
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center 55%',
+          }}
+        />
+
+        {/* ── Gradient overlay: dark top → white bottom ── */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, rgba(18,16,14,0.55) 0%, rgba(18,16,14,0.15) 38%, rgba(246,245,242,0.97) 62%, #f6f5f2 100%)',
+        }} />
 
         {/* ── Header bar ── */}
         <div style={{
-          height: 50, flexShrink: 0,
-          backgroundColor: '#181714',
+          position: 'relative', zIndex: 10,
+          height: 52,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '0 22px',
+          padding: '0 24px',
         }}>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, fontWeight: 500 }}>← Overview</span>
-          <span style={{ color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+          <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12, fontWeight: 500 }}>← Overview</span>
+          <span style={{ color: '#fff', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
             Rustic Italian Pasta
           </span>
           <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
             {[0, 1, 2, 3, 4].map(i => (
               <div key={i} style={{
                 width: 5, height: 5, borderRadius: '50%',
-                backgroundColor: i === stepIdx + 1 ? '#fff' : 'rgba(255,255,255,0.25)',
-                transition: 'background-color 0.4s',
+                backgroundColor: i === stepIdx + 1 ? '#fff' : 'rgba(255,255,255,0.35)',
+                transition: 'background-color 0.5s',
               }} />
             ))}
           </div>
         </div>
 
-        {/* ── Food image ── */}
-        <div style={{ height: '36%', flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
-          <img
-            src="/images/savora/calzone.jpg"
-            alt=""
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%' }}
-          />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(to bottom, transparent 50%, rgba(246,245,242,0.95) 100%)',
-          }} />
-        </div>
-
-        {/* ── Step content ── */}
-        <div
-          key={stepIdx}
-          style={{
-            flex: 1, padding: '18px 26px 10px',
-            display: 'flex', flexDirection: 'column', gap: 11,
-            overflow: 'hidden',
-            animation: 'svSlideIn 0.38s ease',
-          }}
-        >
-          {/* Step label */}
-          <div>
-            <div style={{ fontSize: 10, color: 'rgba(0,0,0,0.35)', fontWeight: 700, letterSpacing: '0.14em', marginBottom: 3 }}>
-              STEP {step.num}
-            </div>
-            <div style={{ fontSize: 20, fontFamily: SERIF, fontWeight: 700, color: '#1a1a18', lineHeight: 1.2 }}>
-              {step.technique}
-            </div>
-          </div>
-
-          {/* Voice zone */}
-          <VoiceZone state={voiceState} transcript={transcript} answer={answer} />
-
-          {/* Instruction */}
-          <p style={{ fontSize: 13, color: '#5a5a56', lineHeight: 1.7, flex: 1, margin: 0 }}>
-            {step.instruction}
-          </p>
-        </div>
-
-        {/* ── Bottom nav ── */}
+        {/* ── Content card (slides up over image) ── */}
         <div style={{
-          height: 50, flexShrink: 0,
-          backgroundColor: '#fff',
-          borderTop: '1px solid rgba(0,0,0,0.07)',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '0 24px',
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          top: '44%',
+          zIndex: 5,
+          display: 'flex', flexDirection: 'column',
         }}>
-          <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>← Prep</span>
-          <div style={{ display: 'flex', gap: 5 }}>
-            {[0, 1, 2, 3, 4].map(i => (
-              <div key={i} style={{
-                width: 5, height: 5, borderRadius: '50%',
-                backgroundColor: i === stepIdx + 1 ? ACCENT : 'rgba(0,0,0,0.14)',
-                transition: 'background-color 0.4s',
-              }} />
-            ))}
+          {/* Card */}
+          <div
+            key={stepIdx}
+            style={{
+              flex: 1,
+              backgroundColor: '#f6f5f2',
+              borderRadius: '20px 20px 0 0',
+              padding: '22px 26px 10px',
+              display: 'flex', flexDirection: 'column', gap: 13,
+              boxShadow: '0 -8px 40px rgba(0,0,0,0.18)',
+              animation: 'svSlideIn 0.4s ease',
+              overflow: 'hidden',
+            }}
+          >
+            {/* Step label */}
+            <div>
+              <div style={{ fontSize: 10, color: 'rgba(0,0,0,0.35)', fontWeight: 700, letterSpacing: '0.14em', marginBottom: 4 }}>
+                STEP {step.num}
+              </div>
+              <div style={{ fontSize: 21, fontFamily: SERIF, fontWeight: 700, color: '#1a1a18', lineHeight: 1.2 }}>
+                {step.technique}
+              </div>
+            </div>
+
+            {/* Voice zone */}
+            <VoiceZone state={voiceState} transcript={transcript} answer={answer} />
+
+            {/* Instruction */}
+            <p style={{ fontSize: 13, color: '#5a5a56', lineHeight: 1.75, flex: 1, margin: 0 }}>
+              {step.instruction}
+            </p>
           </div>
-          <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Build the Sauce →</span>
+
+          {/* Bottom nav */}
+          <div style={{
+            height: 52, flexShrink: 0,
+            backgroundColor: '#f6f5f2',
+            borderTop: '1px solid rgba(0,0,0,0.07)',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '0 26px',
+          }}>
+            <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>← Prep</span>
+            <div style={{ display: 'flex', gap: 5 }}>
+              {[0, 1, 2, 3, 4].map(i => (
+                <div key={i} style={{
+                  width: 5, height: 5, borderRadius: '50%',
+                  backgroundColor: i === stepIdx + 1 ? ACCENT : 'rgba(0,0,0,0.14)',
+                  transition: 'background-color 0.5s',
+                }} />
+              ))}
+            </div>
+            <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Build the Sauce →</span>
+          </div>
         </div>
 
       </div>
