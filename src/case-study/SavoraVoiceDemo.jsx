@@ -4,20 +4,56 @@ const ACCENT = '#af2c38'
 const SANS = "'Inter', system-ui, sans-serif"
 const SERIF = "'Playfair Display', Georgia, serif"
 
-const Q = 'How long for the garlic?'
-const A = "Cook the garlic about 60 seconds over medium heat, stirring frequently until fragrant. Don't let it brown — it'll turn bitter fast."
-const NAV = 'Next step'
-
-const STEPS = [
+const EXAMPLES = [
   {
-    num: '02',
-    technique: 'Sauté the Aromatics',
-    instruction: 'Heat olive oil in a large skillet over medium heat. Add minced garlic and cook, stirring frequently, until fragrant and lightly golden — about 60 seconds. Add crushed red pepper if using.',
+    recipe: 'Thai Green Curry',
+    step: '03',
+    technique: 'Finish the Curry',
+    instruction: 'Stir in coconut milk and bring to a gentle simmer. Add fish sauce and a squeeze of lime. Taste and adjust seasoning before serving over jasmine rice.',
+    question: "What if I don't have fresh Thai basil?",
+    answer: "Regular basil works — it's sweeter and less peppery, but still holds up. Stir it in right at the end so it doesn't wilt and lose its flavor.",
+    imageQuery: 'thai green curry coconut bowl',
+    fallback: '/images/savora/chickpea-bowl.jpg',
   },
   {
-    num: '03',
-    technique: 'Build the Sauce',
-    instruction: 'Add cherry tomatoes to the pan and press gently to burst them. Season generously with salt and pepper, then simmer for 10–12 minutes until the sauce thickens and deepens in color.',
+    recipe: 'Saffron Risotto',
+    step: '04',
+    technique: 'Finish & Plate',
+    instruction: 'Remove from heat and stir in cold butter and freshly grated Parmigiano-Reggiano. Let rest one minute, then plate immediately — risotto waits for no one.',
+    question: 'How do I know when the risotto is done?',
+    answer: "Drag a spoon through the pan — if the risotto slowly flows back, you're there. It should be loose and creamy, never stiff or gluey.",
+    imageQuery: 'saffron risotto parmesan Italian',
+    fallback: '/images/savora/miso-cod.jpg',
+  },
+  {
+    recipe: 'Pan-Seared Salmon',
+    step: '02',
+    technique: 'Sear the Salmon',
+    instruction: 'Heat a stainless steel pan until smoking. Add oil, place salmon skin-side down, and press gently for 30 seconds. Do not move it for 4 minutes.',
+    question: 'Should I cook the skin side first?',
+    answer: "Yes — skin down in a screaming hot pan. Press gently the first 30 seconds, then leave it completely alone until the skin is golden and crispy.",
+    imageQuery: 'pan seared salmon crispy skin fillet',
+    fallback: '/images/savora/miso-cod.jpg',
+  },
+  {
+    recipe: 'Chocolate Lava Cake',
+    step: '01',
+    technique: 'Prep the Batter',
+    instruction: 'Melt dark chocolate and butter over a bain-marie. Whisk eggs and sugar until pale, then fold in the chocolate mixture and flour until just combined.',
+    question: 'Can I make these ahead of time?',
+    answer: "Yes — fill the ramekins, cover, and refrigerate up to 24 hours. Bake straight from cold and add 2 to 3 extra minutes to the time.",
+    imageQuery: 'chocolate lava cake molten dessert',
+    fallback: '/images/savora/smash-burger.jpg',
+  },
+  {
+    recipe: 'Braised Short Ribs',
+    step: '03',
+    technique: 'Build the Braise',
+    instruction: 'Return seared ribs to the pot. Add red wine, beef stock, thyme, and bay leaves until the meat is three-quarters submerged. Cover and transfer to a 325°F oven for 3 hours.',
+    question: 'My sauce is too thin — how do I fix it?',
+    answer: "Whisk a tablespoon of cornstarch into cold water and stir it in, then simmer a few minutes. Or let it reduce uncovered — low and slow works every time.",
+    imageQuery: 'braised beef short ribs red wine sauce',
+    fallback: '/images/savora/carnitas-tacos.jpg',
   },
 ]
 
@@ -45,6 +81,10 @@ const CSS = `
   @keyframes svSlideIn {
     from { opacity: 0; transform: translateX(16px); }
     to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes svImgFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
   @keyframes svIdlePulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(175,44,56,0.22); }
@@ -104,8 +144,8 @@ function VoiceZone({ state, transcript, answer }) {
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
-          backgroundColor: `rgba(175,44,56,0.07)`,
-          border: `1px solid rgba(175,44,56,0.18)`,
+          backgroundColor: 'rgba(175,44,56,0.07)',
+          border: '1px solid rgba(175,44,56,0.18)',
           borderRadius: 28, padding: '8px 18px',
           animation: 'svIdlePulse 2.8s ease-in-out infinite',
         }}>
@@ -128,12 +168,12 @@ function VoiceZone({ state, transcript, answer }) {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
 
-        {/* Mic with rings */}
+        {/* Mic with pulse rings */}
         <div style={{ position: 'relative', width: 38, height: 38, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {state === 'listening' && (
             <>
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.5s ease-out infinite' }} />
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.5s ease-out 0.5s infinite' }} />
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.6s ease-out infinite' }} />
+              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: `2px solid ${ACCENT}`, animation: 'svPulseRing 1.6s ease-out 0.55s infinite' }} />
             </>
           )}
           <div style={{
@@ -151,9 +191,7 @@ function VoiceZone({ state, transcript, answer }) {
           {state === 'listening' && (
             <div style={{ fontSize: 13, color: transcript ? '#1a1a18' : 'rgba(0,0,0,0.35)', fontStyle: transcript ? 'normal' : 'italic', fontFamily: SANS, lineHeight: 1.4 }}>
               {transcript || 'Listening…'}
-              {transcript && (
-                <span style={{ animation: 'svCursor 0.75s step-end infinite', color: ACCENT, marginLeft: 1 }}>|</span>
-              )}
+              {transcript && <span style={{ animation: 'svCursor 0.75s step-end infinite', color: ACCENT, marginLeft: 1 }}>|</span>}
             </div>
           )}
           {state === 'thinking' && <ThinkDots />}
@@ -169,7 +207,7 @@ function VoiceZone({ state, transcript, answer }) {
         <div style={{
           fontSize: 12.5, color: '#3a3a38', lineHeight: 1.7,
           paddingTop: 9, borderTop: '1px solid rgba(0,0,0,0.06)',
-          fontFamily: SANS, animation: 'svFadeUp 0.4s ease',
+          fontFamily: SANS, animation: 'svFadeUp 0.45s ease',
         }}>
           {answer}
         </div>
@@ -179,60 +217,70 @@ function VoiceZone({ state, transcript, answer }) {
 }
 
 export default function SavoraVoiceDemo() {
-  const [loopKey, setLoopKey] = useState(0)
-  const [stepIdx, setStepIdx] = useState(0)
-  const [voiceState, setVoiceState] = useState('idle')
+  const [loopKey, setLoopKey]     = useState(0)
+  const [exIdx, setExIdx]         = useState(0)
+  const [voiceState, setVoice]    = useState('idle')
   const [transcript, setTranscript] = useState('')
-  const [answer, setAnswer] = useState('')
+  const [answer, setAnswer]       = useState('')
+  const [images, setImages]       = useState(EXAMPLES.map(e => e.fallback))
 
-  const step = STEPS[stepIdx]
+  const ex = EXAMPLES[exIdx]
 
+  // Fetch Pexels images once on mount
+  useEffect(() => {
+    Promise.all(
+      EXAMPLES.map((e, i) =>
+        fetch(`/api/image?query=${encodeURIComponent(e.imageQuery)}&count=1`)
+          .then(r => r.json())
+          .then(d => ({ i, url: d.imageUrl || e.fallback }))
+          .catch(() => ({ i, url: e.fallback }))
+      )
+    ).then(results => {
+      setImages(prev => {
+        const next = [...prev]
+        results.forEach(({ i, url }) => { next[i] = url })
+        return next
+      })
+    })
+  }, [])
+
+  // Demo sequence — cycles through all 5 examples
   useEffect(() => {
     const timers = []
     const at = (fn, ms) => timers.push(setTimeout(fn, ms))
     let t = 0
 
-    // ── Phase 1: Q&A ──────────────────────────────────────────────
-    t += 2800
-    at(() => { setVoiceState('listening'); setTranscript('') }, t)
+    EXAMPLES.forEach((ex, ei) => {
+      const Q = ex.question
+      const A = ex.answer
 
-    Q.split('').forEach((_, i) => {
-      at(() => setTranscript(Q.slice(0, i + 1)), t + i * 100)
+      // Switch to this example
+      at(() => { setExIdx(ei); setVoice('idle'); setTranscript(''); setAnswer('') }, t)
+      t += 2600
+
+      // Start listening
+      at(() => setVoice('listening'), t)
+
+      // Type the question
+      Q.split('').forEach((_, i) => {
+        at(() => setTranscript(Q.slice(0, i + 1)), t + i * 95)
+      })
+      t += Q.length * 95 + 1200
+
+      // Thinking
+      at(() => setVoice('thinking'), t)
+      t += 2400
+
+      // Speaking + answer appears
+      at(() => { setVoice('speaking'); setAnswer(A) }, t)
+      t += 6500
+
+      // Back to idle
+      at(() => { setVoice('idle'); setTranscript(''); setAnswer('') }, t)
+      t += 2200
     })
-    t += Q.length * 100 + 900
 
-    at(() => setVoiceState('thinking'), t)
-    t += 2000
-
-    at(() => { setVoiceState('speaking'); setAnswer(A) }, t)
-    t += 5000
-
-    at(() => { setVoiceState('idle'); setTranscript(''); setAnswer('') }, t)
-    t += 3000
-
-    // ── Phase 2: Navigation command ───────────────────────────────
-    at(() => { setVoiceState('listening'); setTranscript('') }, t)
-
-    NAV.split('').forEach((_, i) => {
-      at(() => setTranscript(NAV.slice(0, i + 1)), t + i * 160)
-    })
-    t += NAV.length * 160 + 600
-
-    at(() => {
-      setVoiceState('idle')
-      setTranscript('')
-      setStepIdx(1)
-    }, t)
-    t += 4000
-
-    // ── Reset & loop ───────────────────────────────────────────────
-    at(() => {
-      setStepIdx(0)
-      setVoiceState('idle')
-      setTranscript('')
-      setAnswer('')
-    }, t)
-    t += 400
+    // Loop
     at(() => setLoopKey(k => k + 1), t)
 
     return () => timers.forEach(clearTimeout)
@@ -241,38 +289,34 @@ export default function SavoraVoiceDemo() {
   return (
     <>
       <style>{CSS}</style>
-      <div style={{
-        position: 'absolute', inset: 0, overflow: 'hidden',
-        fontFamily: SANS,
-      }}>
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', fontFamily: SANS }}>
 
-        {/* ── Full-bleed background image ── */}
+        {/* Full-bleed background image — crossfades on example change */}
         <img
-          src="/images/savora/calzone.jpg"
+          key={exIdx}
+          src={images[exIdx]}
           alt=""
           style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%',
             objectFit: 'cover', objectPosition: 'center 55%',
+            animation: 'svImgFade 1.0s ease',
           }}
         />
 
-        {/* ── Gradient overlay: dark top → white bottom ── */}
+        {/* Gradient: dark top → warm white bottom */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(18,16,14,0.55) 0%, rgba(18,16,14,0.15) 38%, rgba(246,245,242,0.97) 62%, #f6f5f2 100%)',
+          background: 'linear-gradient(to bottom, rgba(18,16,14,0.5) 0%, rgba(18,16,14,0.1) 36%, rgba(246,245,242,0.97) 60%, #f6f5f2 100%)',
         }} />
 
-        {/* ── Content card (slides up over image) ── */}
+        {/* Content card slides up over the photo */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0,
-          top: '48%',
-          zIndex: 5,
-          display: 'flex', flexDirection: 'column',
+          position: 'absolute', bottom: 0, left: 0, right: 0, top: '48%',
+          zIndex: 5, display: 'flex', flexDirection: 'column',
         }}>
-          {/* Card */}
           <div
-            key={stepIdx}
+            key={exIdx}
             style={{
               flex: 1,
               backgroundColor: '#f6f5f2',
@@ -280,17 +324,17 @@ export default function SavoraVoiceDemo() {
               padding: '22px 26px 10px',
               display: 'flex', flexDirection: 'column', gap: 13,
               boxShadow: '0 -8px 40px rgba(0,0,0,0.18)',
-              animation: 'svSlideIn 0.4s ease',
+              animation: 'svSlideIn 0.45s ease',
               overflow: 'hidden',
             }}
           >
-            {/* Step label */}
+            {/* Recipe + step label */}
             <div>
-              <div style={{ fontSize: 10, color: 'rgba(0,0,0,0.35)', fontWeight: 700, letterSpacing: '0.14em', marginBottom: 4 }}>
-                STEP {step.num}
+              <div style={{ fontSize: 10, color: 'rgba(0,0,0,0.3)', fontWeight: 700, letterSpacing: '0.14em', marginBottom: 3 }}>
+                {ex.recipe.toUpperCase()} · STEP {ex.step}
               </div>
               <div style={{ fontSize: 21, fontFamily: SERIF, fontWeight: 700, color: '#1a1a18', lineHeight: 1.2 }}>
-                {step.technique}
+                {ex.technique}
               </div>
             </div>
 
@@ -299,7 +343,7 @@ export default function SavoraVoiceDemo() {
 
             {/* Instruction */}
             <p style={{ fontSize: 13, color: '#5a5a56', lineHeight: 1.75, flex: 1, margin: 0 }}>
-              {step.instruction}
+              {ex.instruction}
             </p>
           </div>
 
@@ -313,15 +357,15 @@ export default function SavoraVoiceDemo() {
           }}>
             <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>← Prep</span>
             <div style={{ display: 'flex', gap: 5 }}>
-              {[0, 1, 2, 3, 4].map(i => (
+              {EXAMPLES.map((_, i) => (
                 <div key={i} style={{
                   width: 5, height: 5, borderRadius: '50%',
-                  backgroundColor: i === stepIdx + 1 ? ACCENT : 'rgba(0,0,0,0.14)',
+                  backgroundColor: i === exIdx ? ACCENT : 'rgba(0,0,0,0.14)',
                   transition: 'background-color 0.5s',
                 }} />
               ))}
             </div>
-            <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Build the Sauce →</span>
+            <span style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Next →</span>
           </div>
         </div>
 
