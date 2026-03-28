@@ -37,10 +37,10 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
       className="overflow-x-hidden border-b"
       style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface-alt)' }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-stretch gap-10 md:gap-16 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-stretch gap-10 lg:gap-16 py-16 lg:py-24">
 
         {/* Left: text */}
-        <div className="w-full md:w-1/2 md:shrink-0 md:max-w-lg">
+        <div className="w-full lg:w-1/2 lg:shrink-0 lg:max-w-lg">
           <p className="text-[10px] font-semibold tracking-[0.4em] uppercase" style={{ color: accent }}>
             {label}
           </p>
@@ -74,8 +74,8 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
           )}
         </div>
 
-        {/* Mobile */}
-        <div className="md:hidden w-full">
+        {/* Stacked (below lg) */}
+        <div className="lg:hidden w-full">
           {customVisual
             ? (
               <div style={{ width: '100%', aspectRatio: '1776/1187', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
@@ -102,8 +102,8 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
           }
         </div>
 
-        {/* Desktop */}
-        <div className="hidden md:block flex-1 relative">
+        {/* Side-by-side (lg+) */}
+        <div className="hidden lg:block flex-1 relative">
           <div
             className="absolute inset-0 overflow-hidden"
             style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
