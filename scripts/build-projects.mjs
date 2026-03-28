@@ -24,4 +24,13 @@ for (const name of projects) {
   )
 }
 
+// recipe-creator: use vite build directly (skips tsc which has known type errors)
+const recipeCreatorDir = path.join(portfolioRoot, 'recipe-creator')
+const recipeCreatorOut = path.join(publicProjects, 'savora')
+console.log('\nBuilding recipe-creator (savora)...')
+execSync(
+  `npx vite build --base "/projects/savora/" --outDir "${recipeCreatorOut}" --emptyOutDir`,
+  { cwd: recipeCreatorDir, stdio: 'inherit' }
+)
+
 console.log('\nAll projects built.')

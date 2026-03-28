@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { Sparkles, PieChart, FileText, Users, Zap, BarChart2 } from 'lucide-react'
+import { Sparkles, PieChart, FileText, Users, Zap, BarChart2, ScanText, Cpu, ShieldCheck, Layers } from 'lucide-react'
 
 const HIGHLIGHT_ICONS = [Sparkles, PieChart, FileText, Users, Zap, BarChart2]
+
+const ICON_MAP = { ScanText, Cpu, ShieldCheck, Layers }
 
 function AutoHeightIframe({ src, title }) {
   const [height, setHeight] = useState(900)
@@ -27,7 +29,7 @@ function AutoHeightIframe({ src, title }) {
   )
 }
 
-export default function FeatureSectionSplit({ label, headline, body, image, video, embedUrl, highlights = [], accentColor }) {
+export default function FeatureSectionSplit({ label, headline, body, image, video, embedUrl, customVisual, highlights = [], accentColor }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
@@ -55,7 +57,7 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
           {highlights.length > 0 && (
             <dl className="mt-10 flex flex-col gap-8">
               {highlights.map((feature, i) => {
-                const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length]
+                const Icon = (feature.icon && ICON_MAP[feature.icon]) || HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length]
                 return (
                   <div key={feature.name} className="relative pl-9">
                     <Icon size={16} className="absolute left-1 top-0.5" style={{ color: accent }} />
@@ -73,43 +75,48 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
         </div>
 
         {/* Mobile */}
-        <div
-          className="md:hidden w-full overflow-hidden rounded-2xl p-4"
-          style={{
-            aspectRatio: embedUrl ? undefined : '16/9',
-            backgroundColor: embedUrl ? '#030712' : undefined,
-            boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
-          }}
-        >
-          {embedUrl
-            ? <AutoHeightIframe src={embedUrl} title={headline} />
-            : video
-              ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-left-top" />
-              : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+        <div className="md:hidden w-full">
+          {customVisual
+            ? (
+              <div style={{ width: '100%', aspectRatio: '1776/1187', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+                {customVisual}
+              </div>
+            )
+            : (
+              <div
+                style={{
+                  aspectRatio: embedUrl ? undefined : '16/9',
+                  backgroundColor: embedUrl ? '#030712' : undefined,
+                  boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
+                  overflow: 'hidden', borderRadius: '1rem',
+                }}
+              >
+                {embedUrl
+                  ? <AutoHeightIframe src={embedUrl} title={headline} />
+                  : video
+                    ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-left-top" />
+                    : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+                }
+              </div>
+            )
           }
         </div>
 
-        {/* Desktop: overflow effect */}
+        {/* Desktop */}
         <div className="hidden md:block flex-1 relative">
-          {embedUrl ? (
-            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
-              <AutoHeightIframe src={embedUrl} title={headline} />
-            </div>
-          ) : video ? (
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
-            >
-              <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
-            </div>
-          ) : (
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
-            >
-              <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
-            </div>
-          )}
+          <div
+            className="absolute inset-0 overflow-hidden"
+            style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
+          >
+            {customVisual
+              ? customVisual
+              : embedUrl
+                ? <AutoHeightIframe src={embedUrl} title={headline} />
+                : video
+                  ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
+                  : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+            }
+          </div>
         </div>
 
       </div>

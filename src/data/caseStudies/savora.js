@@ -7,7 +7,7 @@ export const savora = {
   role: 'Product Designer & Developer',
   timeline: '2025',
   tools: ['React', 'TypeScript', 'OpenAI API', 'Vite', 'Pexels API'],
-  prototypeUrl: 'http://localhost:5175',
+  prototypeUrl: '/projects/savora/',
   problem: {
     headline: 'Recipe apps give you a list. They don\'t help you cook.',
     body: 'Existing recipe tools are essentially search engines with instructions — static, generic, and disconnected from the actual cooking experience. There\'s no intelligence in the prompt, no visual guidance per step, and no way to ask questions mid-cook without leaving the app. Savora reimagines the recipe experience from the ground up, combining generative AI with a cinematic, step-by-step card interface that responds to how you actually cook.',
@@ -29,15 +29,15 @@ export const savora = {
     },
     {
       label: 'AI Generation Pipeline',
-      headline: 'Four phases. One cohesive result.',
-      body: 'Recipe generation runs through a structured pipeline: intent parsing, AI generation via GPT-4o, recipe validation, and UI schema composition. Each phase has a visible status indicator so users understand what\'s happening — making a ~3 second API call feel intentional rather than laggy.',
+      headline: 'A recipe, assembled in motion.',
+      body: 'Behind the scenes, your request moves through a four-phase pipeline. Each step is surfaced so you can follow along as your recipe takes shape.',
       video: 'https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/savora_generate.mp4',
       split: true,
       highlights: [
-        { name: 'Structured JSON output.', description: 'The AI returns recipes as typed objects — title, ingredients with amounts, steps with technique names, tips, and substitutions.' },
-        { name: 'Grouped step stages.', description: 'Steps are grouped into 3–6 named cooking stages (e.g. "Make the Sauce", "Cook the Pasta") rather than a flat numbered list.' },
-        { name: 'Curated demo bypass.', description: 'The Italian pasta demo uses a hand-curated recipe to guarantee a pixel-perfect, fully-loaded showcase experience every time.' },
-        { name: 'Animated phase tracker.', description: 'A four-step progress indicator with Lottie animation and rotating cooking verbs turns the wait into a branded moment.' },
+        { name: 'Reading', description: 'Parsing intent, ingredients, and constraints', icon: 'ScanText' },
+        { name: 'Building', description: 'Generating a complete, structured recipe', icon: 'Cpu' },
+        { name: 'Validating', description: 'Ensuring it actually works in the real world', icon: 'ShieldCheck' },
+        { name: 'Composing', description: 'Turning data into a usable, visual recipe', icon: 'Layers' },
       ],
     },
     {
