@@ -6,6 +6,7 @@ import sushiAnimation from '../assets/lottie-sushi.json'
 import burgerAnimation from '../assets/lottie-burger.json'
 import pizzaAnimation from '../assets/lottie-pizza.json'
 import tacosAnimation from '../assets/lottie-tacos.json'
+import bowlAnimation from '../assets/lottie-bowl.json'
 
 const ACCENT   = '#af2c38'
 const SERIF    = "'Playfair Display', Georgia, serif"
@@ -37,7 +38,7 @@ const RECIPES = [
     note: 'Vegan · gluten-free option',
     prep: '10 min', cook: '20 min', total: '30 min',
     image: '/images/savora/chickpea-bowl.jpg',
-    lottie: sushiAnimation,
+    lottie: bowlAnimation,
   },
   {
     name:  'Triple Stack Smash Burger',
