@@ -15,7 +15,7 @@ export const savora = {
   features: [
     {
       label: 'Natural Language Input',
-      headline: 'Describe a craving. Get a recipe.',
+      headline: 'Describe a craving.\nGet a recipe.',
       body: 'Savora accepts any natural language prompt — a dish name, a mood, an occasion, or a set of constraints. The AI parses intent, infers cuisine style and complexity, and generates a fully structured recipe with validated ingredients and steps. Voice input lets you describe what you want without ever touching the keyboard.',
       highlight: true,
       highlights: [

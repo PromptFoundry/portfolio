@@ -9,6 +9,7 @@ import MoreWork from '../case-study/MoreWork'
 import SavoraPromptVisual from '../case-study/SavoraPromptVisual'
 import SavoraPipelineDemo from '../case-study/SavoraPipelineDemo'
 import SavoraVoiceDemo from '../case-study/SavoraVoiceDemo'
+import SavoraFeatureSlider from '../case-study/SavoraFeatureSlider'
 import { savora } from '../data/caseStudies/savora'
 
 const accent = savora.accentColor
@@ -47,7 +48,11 @@ export default function CaseStudySavora() {
       }}>
         {savora.features.map((f, i) =>
           f.highlight
-            ? <FeatureSectionHighlight key={i} {...f} accentColor={accent} customVisual={i === 0 ? <SavoraPromptVisual /> : undefined} />
+            ? <FeatureSectionHighlight key={i} {...f} accentColor={accent} customVisual={
+                i === 0 ? <SavoraPromptVisual /> :
+                i === 2 ? <SavoraFeatureSlider highlights={f.highlights} accentColor={accent} /> :
+                undefined
+              } />
             : f.split
               ? <FeatureSectionSplit key={i} {...f} accentColor={accent} customVisual={
                   f.label === 'AI Generation Pipeline' ? <SavoraPipelineDemo /> :

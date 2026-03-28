@@ -15,7 +15,7 @@ export default function FeatureSectionHighlight({ label, headline, body, image, 
         <p className="text-[10px] font-semibold tracking-[0.4em] uppercase mb-4" style={{ color: accent }}>
           {label}
         </p>
-        <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
+        <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)', whiteSpace: 'pre-line' }}>
           {headline}
         </h3>
         <div
