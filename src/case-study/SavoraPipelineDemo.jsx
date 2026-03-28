@@ -30,6 +30,7 @@ const RECIPES = [
     prep: '15 min', cook: '10 min', total: '25 min',
     image: '/images/savora/tacos.jpg',
     lottie: tacosAnimation,
+    lottieScale: 0.65,
   },
   {
     name:  'Moroccan Chickpea Rice Bowl',
@@ -331,7 +332,7 @@ function Step3({ recipe }) {
 
 // ─── Step 4: Sushi ───────────────────────────────────────────────────────────
 
-function Step4({ lottie: animationData }) {
+function Step4({ lottie: animationData, lottieScale = 1 }) {
   const { View } = useLottie({
     animationData,
     loop: false,
@@ -340,7 +341,11 @@ function Step4({ lottie: animationData }) {
   })
   return (
     <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', animation: 'savoraFade 0.25s ease' }}>
-      <div className="savora-fill" style={{ position: 'absolute', inset: 0 }}>
+      <div className="savora-fill" style={{
+        position: 'absolute', inset: 0,
+        transform: lottieScale !== 1 ? `scale(${lottieScale})` : undefined,
+        transformOrigin: 'center center',
+      }}>
         {View}
       </div>
     </div>
@@ -414,7 +419,7 @@ export default function SavoraPipelineDemo() {
         {step === 1 && <Step1 typedText={typedText} recipeName={recipe.name} />}
         {step === 2 && <Step2 phase={phase} />}
         {step === 3 && <Step3 recipe={recipe} />}
-        {step === 4 && <Step4 lottie={recipe.lottie} />}
+        {step === 4 && <Step4 lottie={recipe.lottie} lottieScale={recipe.lottieScale} />}
       </div>
     </>
   )
