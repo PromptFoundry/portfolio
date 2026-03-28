@@ -76,47 +76,43 @@ export default function FeatureSectionSplit({ label, headline, body, image, vide
 
         {/* Stacked (below lg) */}
         <div className="lg:hidden w-full">
-          {customVisual
-            ? (
-              <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, 65vw, 620px)', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
-                {customVisual}
-              </div>
-            )
-            : (
-              <div
-                style={{
-                  aspectRatio: embedUrl ? undefined : '16/9',
-                  backgroundColor: embedUrl ? '#030712' : undefined,
-                  boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)',
-                  overflow: 'hidden', borderRadius: '1rem',
-                }}
-              >
-                {embedUrl
-                  ? <AutoHeightIframe src={embedUrl} title={headline} />
-                  : video
-                    ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-left-top" />
-                    : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
-                }
-              </div>
-            )
-          }
+          {customVisual ? (
+            <div style={{ position: 'relative', width: '100%', height: 'clamp(420px, 65vw, 620px)', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              {customVisual}
+            </div>
+          ) : embedUrl ? (
+            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              <AutoHeightIframe src={embedUrl} title={headline} />
+            </div>
+          ) : (
+            <div style={{ aspectRatio: '16/9', overflow: 'hidden', borderRadius: '1rem', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              {video
+                ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-left-top" />
+                : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
+              }
+            </div>
+          )}
         </div>
 
         {/* Side-by-side (lg+) */}
-        <div className="hidden lg:block flex-1 relative">
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
-          >
-            {customVisual
-              ? customVisual
-              : embedUrl
-                ? <AutoHeightIframe src={embedUrl} title={headline} />
+        <div className={`hidden lg:block flex-1 ${embedUrl ? '' : 'relative'}`}>
+          {embedUrl ? (
+            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}>
+              <AutoHeightIframe src={embedUrl} title={headline} />
+            </div>
+          ) : (
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ borderRadius: '1rem', right: '-200px', boxShadow: '0 20px 50px -12px rgba(0,0,0,0.5)' }}
+            >
+              {customVisual
+                ? customVisual
                 : video
                   ? <video src={video} autoPlay loop muted playsInline className="w-full h-full object-cover object-center" />
                   : <img src={image} alt={headline} className="w-full h-full object-cover object-left-top" />
-            }
-          </div>
+              }
+            </div>
+          )}
         </div>
 
       </div>
