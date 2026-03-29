@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLottie } from 'lottie-react'
-import cookingAnimation from '../assets/lottie-cooking.json'
 import loadingAnimation from '../assets/lottie-loading.json'
-import sushiAnimation from '../assets/lottie-sushi.json'
+import sushiAnimation from '../assets/lottie-food-bowl.json'
 import burgerAnimation from '../assets/lottie-burger.json'
 import pizzaAnimation from '../assets/lottie-pizza.json'
 import tacosAnimation from '../assets/lottie-tacos.json'
@@ -153,15 +152,10 @@ function Step1({ typedText = '', recipeName = '' }) {
       position: 'absolute', inset: 0,
       backgroundColor: 'transparent',
       display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'flex-start',
+      alignItems: 'center', justifyContent: 'center',
       overflow: 'hidden',
       animation: 'savoraFade 0.3s ease',
     }}>
-      {/* Lottie — top flush, fills ~38% of height */}
-      <LottieView
-        animationData={cookingAnimation}
-        style={{ width: '50%', maxWidth: 280, flexShrink: 0 }}
-      />
 
       {/* What shall / we cook? */}
       <div style={{ textAlign: 'center', lineHeight: 1, padding: '0 5%' }}>
@@ -339,12 +333,15 @@ function Step4({ lottie: animationData, lottieScale = 1 }) {
     animationData,
     loop: false,
     autoplay: true,
-    rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
   })
   return (
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '1rem', animation: 'savoraFade 0.25s ease' }}>
-      <div className="savora-fill" style={{
-        position: 'absolute', inset: 0,
+    <div style={{
+      position: 'absolute', inset: 0,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      animation: 'savoraFade 0.25s ease',
+    }}>
+      <div style={{
+        width: '75%', maxWidth: 380,
         transform: lottieScale !== 1 ? `scale(${lottieScale})` : undefined,
         transformOrigin: 'center center',
       }}>

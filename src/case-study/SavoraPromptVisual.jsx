@@ -13,10 +13,9 @@ function CookingLottie() {
 export default function SavoraPromptVisual() {
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0 24px' }}>
-      {/* Outer wrapper — sets the max width and gives room for the rotated blob to breathe */}
       <div style={{ position: 'relative', width: '100%', maxWidth: 780 }}>
 
-        {/* Blob shape — slightly tilted like the mockup */}
+        {/* Blob shape */}
         <img
           src="/images/savora/shape.svg"
           alt=""
@@ -34,45 +33,26 @@ export default function SavoraPromptVisual() {
           }}
         />
 
-        {/* Content — stacked inside the blob */}
+        {/* Content — centered in blob */}
         <div style={{
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: 'clamp(32px, 6vw, 64px)',
-          paddingBottom: 'clamp(28px, 5vw, 56px)',
-          paddingLeft: 24,
-          paddingRight: 24,
-          // Aspect ratio close to the blob (723 × 673)
+          justifyContent: 'center',
           minHeight: 'clamp(320px, 58vw, 580px)',
-          justifyContent: 'space-between',
         }}>
-
-          {/* Logotype + tagline */}
           <img
             src="/images/savora/logotype-tag.svg"
             alt="Savora — Generative Cuisine"
             style={{
               width: 'clamp(120px, 22vw, 200px)',
               display: 'block',
-              flexShrink: 0,
+              marginBottom: '-5%',
             }}
           />
 
-          {/* Lottie cooking illustration */}
           <CookingLottie />
-
-          {/* "What shall we cook?" headline */}
-          <img
-            src="/images/savora/whatshallwecook.svg"
-            alt="What shall we cook?"
-            style={{
-              width: 'clamp(220px, 68%, 540px)',
-              display: 'block',
-              flexShrink: 0,
-            }}
-          />
         </div>
       </div>
     </div>
