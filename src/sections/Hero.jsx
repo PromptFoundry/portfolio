@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { ArrowDown } from 'lucide-react'
 
-function ParticleCanvas() {
+function DotGrid() {
   const canvasRef = useRef(null)
 
   useEffect(() => {
@@ -9,141 +9,108 @@ function ParticleCanvas() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     let animId
-    let particles = []
-    const mouse = { x: null, y: null }
+    let dots = []
 
-    const PARTICLE_COUNT = Math.min(120, Math.floor((window.innerWidth * window.innerHeight) / 9000))
-    const MAX_DIST = 160
-    const MOUSE_DIST = 220
-    const REPEL_DIST = 90
-    const REPEL_FORCE = 0.06
-    const SPEED = 0.3
+    // Mouse starts off-canvas so no dots are affected on load
+    const mouse = { x: -9999, y: -9999, active: false }
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth
+    const SPACING   = 30    // grid pitch (px)
+    const BASE_R    = 1.4   // resting dot radius
+    const PEAK_R    = 3.2   // radius at cursor centre
+    const INFLUENCE = 130   // cursor influence radius
+    const MAX_PUSH  = 26    // max displacement (px)
+    const STIFFNESS = 0.11  // spring pull toward target offset
+    const DAMPING   = 0.74  // velocity damping per frame
+
+    const build = () => {
+      canvas.width  = canvas.offsetWidth
       canvas.height = canvas.offsetHeight
-    }
-
-    const init = () => {
-      resize()
-      particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * SPEED,
-        vy: (Math.random() - 0.5) * SPEED,
-        baseVx: (Math.random() - 0.5) * SPEED,
-        baseVy: (Math.random() - 0.5) * SPEED,
-        r: Math.random() * 1.5 + 0.5,
-      }))
+      dots = []
+      // Centre the grid so dots are symmetrically distributed
+      const cols  = Math.ceil(canvas.width  / SPACING) + 2
+      const rows  = Math.ceil(canvas.height / SPACING) + 2
+      const startX = ((canvas.width  % SPACING) / 2) - SPACING / 2
+      const startY = ((canvas.height % SPACING) / 2) - SPACING / 2
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          dots.push({
+            gx: startX + c * SPACING,
+            gy: startY + r * SPACING,
+            ox: 0, oy: 0,   // current offset from grid position
+            vx: 0, vy: 0,   // velocity
+          })
+        }
+      }
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Particle-to-particle connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x
-          const dy = particles[i].y - particles[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.25
-            ctx.strokeStyle = `rgba(255,255,255,${alpha})`
-            ctx.lineWidth = 0.6
-            ctx.beginPath()
-            ctx.moveTo(particles[i].x, particles[i].y)
-            ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.stroke()
-          }
-        }
-      }
+      for (const d of dots) {
+        const dx = d.gx - mouse.x
+        const dy = d.gy - mouse.y
+        const dist = Math.sqrt(dx * dx + dy * dy)
 
-      // Cursor-to-particle connections
-      if (mouse.x !== null) {
-        for (const p of particles) {
-          const dx = p.x - mouse.x
-          const dy = p.y - mouse.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < MOUSE_DIST) {
-            const alpha = (1 - dist / MOUSE_DIST) * 0.6
-            ctx.strokeStyle = `rgba(255,255,255,${alpha})`
-            ctx.lineWidth = 1
-            ctx.beginPath()
-            ctx.moveTo(mouse.x, mouse.y)
-            ctx.lineTo(p.x, p.y)
-            ctx.stroke()
-          }
+        // Target offset: push dot away from cursor
+        let tx = 0, ty = 0
+        if (mouse.active && dist < INFLUENCE && dist > 0) {
+          const t  = 1 - dist / INFLUENCE
+          const ease = t * t * (3 - 2 * t)    // smoothstep
+          const push = ease * MAX_PUSH
+          tx = (dx / dist) * push
+          ty = (dy / dist) * push
         }
 
-        // Cursor dot
+        // Spring toward target offset
+        d.vx += (tx - d.ox) * STIFFNESS
+        d.vy += (ty - d.oy) * STIFFNESS
+        d.vx *= DAMPING
+        d.vy *= DAMPING
+        d.ox += d.vx
+        d.oy += d.vy
+
+        const x = d.gx + d.ox
+        const y = d.gy + d.oy
+
+        // Visual: radius + opacity scale with proximity
+        const proximity = mouse.active
+          ? Math.max(0, 1 - dist / INFLUENCE)
+          : 0
+        const ease2 = proximity * proximity * (3 - 2 * proximity)
+        const r     = BASE_R + ease2 * (PEAK_R - BASE_R)
+        const alpha = 0.18  + ease2 * 0.62
+
         ctx.beginPath()
-        ctx.arc(mouse.x, mouse.y, 2, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(255,255,255,0.6)'
-        ctx.fill()
-      }
-
-      // Update particles
-      for (const p of particles) {
-        // Repel from cursor
-        if (mouse.x !== null) {
-          const dx = p.x - mouse.x
-          const dy = p.y - mouse.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < REPEL_DIST && dist > 0) {
-            const force = (1 - dist / REPEL_DIST) * REPEL_FORCE
-            p.vx += (dx / dist) * force
-            p.vy += (dy / dist) * force
-          }
-        }
-
-        // Dampen back toward base velocity
-        p.vx += (p.baseVx - p.vx) * 0.03
-        p.vy += (p.baseVy - p.vy) * 0.03
-
-        p.x += p.vx
-        p.y += p.vy
-
-        if (p.x < 0) p.x = canvas.width
-        if (p.x > canvas.width) p.x = 0
-        if (p.y < 0) p.y = canvas.height
-        if (p.y > canvas.height) p.y = 0
-      }
-
-      // Draw dots
-      for (const p of particles) {
-        ctx.beginPath()
-        ctx.arc(p.x, p.r, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(255,255,255,0.55)'
+        ctx.arc(x, y, r, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`
         ctx.fill()
       }
 
       animId = requestAnimationFrame(draw)
     }
 
-    const handleMouseMove = (e) => {
+    const onMove = (e) => {
       const rect = canvas.getBoundingClientRect()
       mouse.x = e.clientX - rect.left
       mouse.y = e.clientY - rect.top
+      mouse.active = true
     }
 
-    const handleMouseLeave = () => {
-      mouse.x = null
-      mouse.y = null
-    }
+    const onLeave = () => { mouse.active = false }
 
-    init()
+    build()
     draw()
 
-    const handleResize = () => { init() }
-    window.addEventListener('resize', handleResize)
-    canvas.addEventListener('mousemove', handleMouseMove)
-    canvas.addEventListener('mouseleave', handleMouseLeave)
+    const onResize = () => build()
+    window.addEventListener('resize', onResize)
+    canvas.addEventListener('mousemove', onMove)
+    canvas.addEventListener('mouseleave', onLeave)
 
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', handleResize)
-      canvas.removeEventListener('mousemove', handleMouseMove)
-      canvas.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('resize', onResize)
+      canvas.removeEventListener('mousemove', onMove)
+      canvas.removeEventListener('mouseleave', onLeave)
     }
   }, [])
 
@@ -151,7 +118,6 @@ function ParticleCanvas() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.8 }}
     />
   )
 }
@@ -162,7 +128,7 @@ export default function Hero() {
       className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden"
       style={{ backgroundColor: '#080808' }}
     >
-      <ParticleCanvas />
+      <DotGrid />
 
       {/* Radial vignette */}
       <div
