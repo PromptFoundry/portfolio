@@ -30,6 +30,7 @@ export default function CaseStudySavora() {
         outcome="AI-generated recipe app with voice-guided cooking"
         tools={savora.tools}
         prototypeUrl={savora.prototypeUrl}
+        accentColor={accent}
       />
       <ProblemStatementBranded
         headline={savora.problem.headline}

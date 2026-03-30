@@ -31,6 +31,7 @@ export default function CaseStudyInfluencer() {
         outcome="All-in-one campaign management platform"
         tools={influencer.tools}
         prototypeUrl={influencer.prototypeUrl}
+        accentColor={accent}
       />
       <ProblemStatementBranded
         headline={influencer.problem.headline}

@@ -28,6 +28,7 @@ export default function CaseStudyOrka() {
         timeline={orka.timeline}
         tools={orka.tools}
         prototypeUrl={orka.prototypeUrl}
+        accentColor={accent}
       />
       <ProblemStatementBranded
         headline={orka.problem.headline}

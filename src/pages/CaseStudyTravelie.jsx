@@ -134,6 +134,7 @@ export default function CaseStudyTravelie() {
         timeline={travelie.timeline}
         tools={travelie.tools}
         prototypeUrl={travelie.prototypeUrl}
+        accentColor={accent}
       />
       <ProblemStatementBranded
         headline={travelie.problem.headline}

@@ -30,6 +30,7 @@ export default function CaseStudyArcis() {
         outcome="React-based design system and template builder"
         tools={arcis.tools}
         prototypeUrl={arcis.prototypeUrl}
+        accentColor={accent}
       />
       <ProblemStatementBranded
         headline={arcis.problem.headline}

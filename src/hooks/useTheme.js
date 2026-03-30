@@ -10,7 +10,7 @@ const themes = {
     '--color-foreground': '#0f0f0f',
     '--color-foreground-muted': '#6b6b6b',
     '--color-border': '#e2e2e0',
-    '--color-accent': '#60a5fa',
+    '--color-accent': '#6b6b6b',
   },
   dark: {
     '--color-brand': '#f0f0ee',
@@ -21,7 +21,7 @@ const themes = {
     '--color-foreground': '#f0f0ee',
     '--color-foreground-muted': '#888884',
     '--color-border': '#2a2a2a',
-    '--color-accent': '#60a5fa',
+    '--color-accent': 'rgba(255,255,255,0.45)',
   },
 }
 
