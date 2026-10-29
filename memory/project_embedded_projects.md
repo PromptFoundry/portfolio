@@ -47,6 +47,15 @@
   so recipes reopened from History/Library refine correctly. Refine still regenerates from the
   prompt + instruction, not from the current recipe — known limitation.
 
+## Savora voice assistant
+- Uses OpenAI Realtime **GA** over WebRTC (fixed 2026-10-29 after OpenAI removed the beta):
+  token from `POST /v1/realtime/client_secrets` (`site/api/realtime/session.js`, and the copy in
+  `../savora/vite.config.ts`) returning `{ value: 'ek_…' }`; SDP to `/v1/realtime/calls`;
+  model alias `gpt-realtime` (not a dated preview). `session.update` needs `type: 'realtime'`,
+  turn detection under `audio.input`, voice fixed at mint time. Events are
+  `response.output_audio_transcript.delta` and `output_audio_buffer.started/stopped`.
+- The Browser pane blocks the microphone, so full voice tests need a real browser.
+
 ## Savora images (decided 2026-10-29)
 - The recipe model writes stock-photo searches: `images.hero`, `images.background` and per-step
   `photo` (concrete subject + state + vessel, never step names). Prompt text lives in BOTH
