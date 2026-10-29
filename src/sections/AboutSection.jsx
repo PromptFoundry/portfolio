@@ -9,7 +9,7 @@ export default function AboutSection() {
         {/* Headshot */}
         <div className="aspect-[4/5] overflow-hidden md:col-span-1">
           <img
-            src="/images/chase.png"
+            src="/images/chase.jpg"
             alt="Chase Hignight"
             className="w-full h-full object-cover object-top"
           />
