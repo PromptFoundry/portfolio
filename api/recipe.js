@@ -40,6 +40,12 @@ OTHER RULES:
 - If low carb is requested, avoid pasta, bread, sugar
 - Keep steps realistic and sequential
 
+IMAGE SEARCH RULES — these phrases search a stock photo library, so describe what a photo would literally show:
+- "images.hero": the finished dish as served, 3–7 words, e.g. "chicken biryani in copper pot, overhead".
+- "images.background": a landscape evoking where the cuisine comes from, no food, 3–6 words, e.g. "Tuscan hills at golden hour".
+- each step "photo": the food at that stage, 3–7 words — key ingredient(s) + their state + pan or tool, e.g. "garlic sizzling in olive oil", "tomato sauce simmering in saucepan".
+- Never use step names or abstract verbs (combine, serve, prepare, finish, assemble). No brands, no people.
+
 Return ONLY valid JSON in this exact format:
 
 {
@@ -53,8 +59,9 @@ Return ONLY valid JSON in this exact format:
     { "name": "", "amount": "", "unit": "" }
   ],
   "steps": [
-    { "technique": "", "instruction": "" }
+    { "technique": "", "instruction": "", "photo": "" }
   ],
+  "images": { "hero": "", "background": "" },
   "tips": [],
   "substitutions": []
 }

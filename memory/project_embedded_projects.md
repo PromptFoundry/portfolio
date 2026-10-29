@@ -39,5 +39,25 @@
   Constraints keeps Generate in a sticky bar with "N set · Clear all".
 - The StepFlow card height is capped to the viewport (`CARD_VERTICAL_CHROME`, min 520px) so short
   laptop screens don't clip the CTA.
-- Saved recipes persist in localStorage (`savora-cookbook`, zustand `persist`, savedRecipes only).
-  StepFlow writes the resolved overview photo onto the recipe so cookbook cards have an image.
+- Saved recipes and History persist in localStorage (`savora-cookbook`, zustand `persist`).
+  History auto-records every generate and refine (newest first, capped at 30, `addToHistory` in
+  `appStore.ts`) and shows as a tab in the Library. StepFlow writes the hero photo onto the recipe
+  (and its saved/history copies) so cards have an image.
+- Refine uses the recipe's own `_sourcePrompt` (falling back to the typed prompt, then the title),
+  so recipes reopened from History/Library refine correctly. Refine still regenerates from the
+  prompt + instruction, not from the current recipe — known limitation.
+
+## Savora images (decided 2026-10-29)
+- The recipe model writes stock-photo searches: `images.hero`, `images.background` and per-step
+  `photo` (concrete subject + state + vessel, never step names). Prompt text lives in BOTH
+  `site/api/recipe.js` and `../savora/vite.config.ts`. Stored as `recipe.imageQueries` and
+  `step.photoQuery`; `src/lib/recipeImages.ts` falls back to title heuristics for older recipes.
+- `site/api/image.js` fetches 15 Pexels candidates and ranks them (alt-text overlap, resolution,
+  orientation fit, Pexels order; people demoted), returns full `photos` objects (avgColor, alt,
+  photographer, documented `src` variants) plus legacy `imageUrl(s)`, cached at the edge for a day.
+- `useRecipeImages` fetches everything for a recipe up front, caches per query, and assigns step
+  photos so none repeats. Slots use documented sizes only: `portrait` (800×1200) for tall grid
+  cells, `large2x` elsewhere, `large` for the blurred backdrop. `SmartPhoto` shows avgColor then
+  fades in. Grid only when 4 photos exist, else one photo. Next step preloads.
+- Not done yet (Phase 3): Pexels/photographer credit (required by Pexels' API guidelines) and
+  persisting the chosen photo set on the recipe.
