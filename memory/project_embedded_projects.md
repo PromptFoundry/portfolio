@@ -74,3 +74,8 @@
   filled with re-crops); a single photo stands alone. Chase's rule: reuse must look intentional.
 - Not done yet (Phase 3): Pexels/photographer credit (required by Pexels' API guidelines) and
   persisting the chosen photo set on the recipe.
+
+## Savora voice assistant cost guards (2026-10-29)
+- Model `gpt-realtime-2.1-mini`, voice `marin` (mint-verified). session.update sets `max_output_tokens: 300`, `semantic_vad` eagerness low, `noise_reduction: near_field` (all accepted by live API).
+- `useRealtimeVoice` auto-stops after 2 min without speech / 10 min total and exposes `stopReason` ("Paused to save · Resume"); error kind `limit` on 429.
+- `site/api/realtime/session.js`: best-effort per-IP limit, 5 sessions/hour (in-memory per instance). The dev route in `savora/vite.config.ts` has no limit.
