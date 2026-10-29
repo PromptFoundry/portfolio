@@ -58,6 +58,10 @@
 - `useRecipeImages` fetches everything for a recipe up front, caches per query, and assigns step
   photos so none repeats. Slots use documented sizes only: `portrait` (800×1200) for tall grid
   cells, `large2x` elsewhere, `large` for the blurred backdrop. `SmartPhoto` shows avgColor then
-  fades in. Grid only when 4 photos exist, else one photo. Next step preloads.
+  fades in. Next step preloads.
+- Grid composition (`arrangeGrid` in `recipeImages.ts`): tall cells get full frames of distinct
+  shoots; a repeated photo or another shot from the same shoot (same photographer) becomes a
+  close-up crop in a short cell (≤1.75× zoom so files stay sharp). Grid from 2+ photos (gaps are
+  filled with re-crops); a single photo stands alone. Chase's rule: reuse must look intentional.
 - Not done yet (Phase 3): Pexels/photographer credit (required by Pexels' API guidelines) and
   persisting the chosen photo set on the recipe.
