@@ -12,6 +12,11 @@
   --color-foreground-muted: #6b6b6b;
   --color-border: #e2e2e0;
   --color-accent: rgba(255,255,255,0.45);
+  --color-notice-bg: #1c1a10;
+  --color-notice-border: #1c1a10;
+  --color-notice-fg: #f2ead0;
+  --color-notice-muted: #ada077;
+  --color-notice-accent: #e0ba45;
 }
 
 * {
