@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Sun, Moon, Menu, X } from 'lucide-react'
-import Tag from '../ui/Tag'
+import SiteNotice from './SiteNotice'
 
 export default function Navbar({ theme, onToggleTheme }) {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -19,17 +19,7 @@ export default function Navbar({ theme, onToggleTheme }) {
       className="sticky top-0 z-50 border-b"
       style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
     >
-      <div
-        role="note"
-        aria-label="Site status"
-        className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-b px-6 py-2 text-center"
-        style={{ backgroundColor: 'var(--color-surface-alt)', borderColor: 'var(--color-border)' }}
-      >
-        <Tag>Under construction</Tag>
-        <span className="text-xs" style={{ color: 'var(--color-foreground-muted)' }}>
-          Some work is incomplete.
-        </span>
-      </div>
+      <SiteNotice />
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
