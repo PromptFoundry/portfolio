@@ -7,9 +7,13 @@ const siteRoot = path.resolve(__dirname, '..')
 const portfolioRoot = path.resolve(siteRoot, '..')
 const publicProjects = path.join(siteRoot, 'public', 'projects')
 
+// Each project lives in a sibling folder of the same name. Builds call vite
+// directly (skipping tsc) since some projects have known type errors.
 const projects = [
   'arcis',
   'influencer-marketing-platform',
+  'orka',
+  'savora',
   'travelie',
   'ui-animations',
 ]
@@ -23,14 +27,5 @@ for (const name of projects) {
     { cwd: projectDir, stdio: 'inherit' }
   )
 }
-
-// recipe-creator: use vite build directly (skips tsc which has known type errors)
-const recipeCreatorDir = path.join(portfolioRoot, 'recipe-creator')
-const recipeCreatorOut = path.join(publicProjects, 'savora')
-console.log('\nBuilding recipe-creator (savora)...')
-execSync(
-  `npx vite build --base "/projects/savora/" --outDir "${recipeCreatorOut}" --emptyOutDir`,
-  { cwd: recipeCreatorDir, stdio: 'inherit' }
-)
 
 console.log('\nAll projects built.')
