@@ -9,6 +9,10 @@
   `/projects/<name>/*`. In prod, `vercel.json` rewrites do the same.
 - Savora's backend exists **twice**: as middleware in `../savora/vite.config.ts` (dev) and as
   Vercel functions in `site/api/` (prod). Prompt/model changes must be made in both.
+- The site's dev server runs `site/api/*.js` locally via the `devApiRoutes` plugin in
+  `vite.config.js` (small Vercel req/res adapter). Keys are read at dev time from
+  `../savora/.env` (OPENAI_API_KEY, PEXELS_API_KEY), never copied into the site. Unknown
+  `/api/*` paths 404 like on Vercel. `.env*` is gitignored in the site.
 - `../savora` is **not a git repo**. Its `.env` (OpenAI, Pexels) and a 365 MB PSD live there —
   ignore both if it's ever put under version control.
 
