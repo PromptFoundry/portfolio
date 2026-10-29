@@ -87,7 +87,7 @@ function Lightbox({ images, startIndex, onClose, accentColor }) {
         )}
 
         {/* Thumbnail strip */}
-        <div className="flex gap-2 mt-4 overflow-x-auto pb-1 justify-center">
+        <div className="flex gap-2 mt-4 overflow-x-auto pb-1 justify-center hide-scrollbar">
           {images.map((thumb, i) => (
             <button
               key={i}

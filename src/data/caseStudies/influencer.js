@@ -6,11 +6,11 @@ export const influencer = {
   accentColor: '#7c3aed',
   role: 'Product Designer',
   timeline: '2025',
-  tools: ['Figma', 'React', 'TypeScript', 'Tailwind CSS'],
+  tools: ['Figma', 'React', 'TypeScript'],
   prototypeUrl: '/projects/influencer-marketing-platform/',
   problem: {
     headline: 'Brand-creator collaboration was fragmented, slow, and opaque.',
-    body: 'Marketing teams were managing creator campaigns across spreadsheets, DMs, and disconnected tools. There was no single place to discover creators, manage outreach, track campaign performance, or handle payments — leading to missed deadlines and unreliable ROI data.',
+    body: 'This project was originally created for RewardStyle and has been thoughtfully reworked to ensure it does not include any NDA-protected material.\n\nMarketing teams were managing creator campaigns across spreadsheets, DMs, and disconnected tools. There was no single place to discover creators, manage outreach, track campaign performance, or handle payments — leading to missed deadlines and unreliable ROI data.',
   },
   features: [
     {

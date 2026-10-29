@@ -6,7 +6,7 @@ export const arcis = {
   accentColor: '#c8a96e',
   role: 'UI Designer & Developer',
   timeline: '2025',
-  tools: ['React', 'Tailwind CSS', 'Vite', 'Figma'],
+  tools: ['React', 'Vite', 'Figma'],
   prototypeUrl: '/projects/arcis/',
 
   problem: {

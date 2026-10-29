@@ -6,7 +6,7 @@ export const orka = {
   accentColor: '#10b981',
   role: 'Designer & Developer',
   timeline: '2025',
-  tools: ['React', 'TypeScript', 'Tailwind CSS', 'Anthropic SDK', 'Vite'],
+  tools: ['React', 'TypeScript', 'Anthropic SDK', 'Vite'],
   prototypeUrl: '/projects/orka/',
 
   problem: {

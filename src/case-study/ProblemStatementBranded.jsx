@@ -40,12 +40,15 @@ export default function ProblemStatementBranded({ headline, body, accentColor })
         />
 
         {/* Body */}
-        <p
-          className="text-sm font-light leading-relaxed"
-          style={{ color: 'rgba(245,243,255,0.6)' }}
-        >
-          {body}
-        </p>
+        {body.split('\n\n').map((para, i) => (
+          <p
+            key={i}
+            className={`text-sm font-light leading-relaxed mb-4 last:mb-0${i === 0 ? ' italic' : ''}`}
+            style={{ color: i === 0 ? 'rgba(245,243,255,0.35)' : 'rgba(245,243,255,0.6)' }}
+          >
+            {para}
+          </p>
+        ))}
       </div>
     </section>
   )

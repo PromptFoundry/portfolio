@@ -6,7 +6,7 @@ export const travelie = {
   accentColor: '#0ea5e9',
   role: 'UX/UI Designer',
   timeline: '2025',
-  tools: ['Figma', 'React', 'Tailwind CSS'],
+  tools: ['Figma', 'React'],
   prototypeUrl: '/projects/travelie/',
   problem: {
     headline: 'Travel planning is overwhelming, impersonal, and full of generic recommendations.',

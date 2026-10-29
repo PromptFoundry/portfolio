@@ -1,6 +1,6 @@
 import Tag from '../components/ui/Tag'
 
-const skills = ['Product Design', 'UI Development', 'Design Systems', 'React', 'Tailwind CSS', 'Figma', 'Prototyping', 'User Research']
+const skills = ['Product Design', 'UI Development', 'Design Systems', 'React', 'Figma', 'Prototyping', 'User Research']
 
 export default function AboutSection() {
   return (
