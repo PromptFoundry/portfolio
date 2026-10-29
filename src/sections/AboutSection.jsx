@@ -21,14 +21,14 @@ export default function AboutSection() {
             About Me
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 leading-tight" style={{ color: 'var(--color-foreground)' }}>
-            The intersection of design vision and technical implementation
+            Where design vision meets technical execution
           </h2>
           <div className="w-12 h-px mb-6" style={{ backgroundColor: 'var(--color-accent)' }} />
           <p className="text-sm font-light leading-relaxed mb-4" style={{ color: 'var(--color-foreground-muted)' }}>
-            I like working where design meets implementation, making sure things come together the way they should.
+            I enjoy working at the intersection of design and engineering, bridging the gap between creative vision and real-world execution.
           </p>
           <p className="text-sm font-light leading-relaxed mb-8" style={{ color: 'var(--color-foreground-muted)' }}>
-            Most of my work lives in design systems, SaaS, and consumer apps, with a focus on building things that feel right, not overly designed.
+            My experience spans design systems, SaaS platforms, and consumer applications, with a focus on creating experiences that feel intuitive, intentional, and thoughtfully crafted.
           </p>
           <div className="flex flex-wrap gap-2">
             {skills.map(s => <Tag key={s}>{s}</Tag>)}
