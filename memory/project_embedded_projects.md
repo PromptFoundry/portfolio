@@ -31,3 +31,13 @@
   `fixed` mode, `HEADER_HEIGHT`). Shared text/button recipes: `src/design/styles.ts`
   (`eyebrow`, `textLink`, `primaryButton`). New screens should use these, not restyle by hand.
 - Headlines are live text (`clamp()` sizes), not baked SVGs. The lottie cook stays.
+- Only the `step_flow` recipe layout is ever selected (`selectLayout` in `uiEngine.ts`);
+  EditorialSplit/Magazine/Minimal/Infographic are unreachable and were left untouched.
+- Long-list rules (decided 2026-10-29): ingredients go two-column (filled down each column)
+  above 8 items where the panel is ≥900px wide, scroll with fade edges if still too tall, and can
+  be ticked off. Instructions never shrink below 16px; long steps scroll with fade edges.
+  Constraints keeps Generate in a sticky bar with "N set · Clear all".
+- The StepFlow card height is capped to the viewport (`CARD_VERTICAL_CHROME`, min 520px) so short
+  laptop screens don't clip the CTA.
+- Saved recipes persist in localStorage (`savora-cookbook`, zustand `persist`, savedRecipes only).
+  StepFlow writes the resolved overview photo onto the recipe so cookbook cards have an image.
