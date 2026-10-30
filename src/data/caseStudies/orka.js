@@ -17,10 +17,10 @@ export const orka = {
   features: [
     // ── Feature 1: Dashboard (FeatureSection) ─────────────────────────────
     {
-      label: 'Workflow Builder',
-      headline: 'Build AI-powered workflows that think, decide, and act.',
-      body: 'Turn real events into intelligent flows. Start with a trigger, layer in AI and logic, and connect actions across your tools—everything runs as a coordinated system.',
-      image: '/images/orka/dashboard.png',
+      label: 'Agent Dashboard',
+      headline: 'Every agent, at a glance.',
+      body: 'The dashboard is home base: how many agents are live, what ran today and how reliably. Each agent card shows its status, what it does, its run history and when it last ran. Open any one to land straight in its workflow, or start a new agent from a single button.',
+      image: '/images/orka/v2-dashboard.png',
       imagePosition: 'right',
     },
 
@@ -86,7 +86,7 @@ export const orka = {
   ],
 
   gallery: [
-    { src: '/images/orka/dashboard.png',          alt: 'Agent dashboard — manage and monitor all AI agents' },
+    { src: '/images/orka/v2-dashboard.png',       alt: 'Agent dashboard — manage and monitor all AI agents' },
     { src: '/images/orka/v2-entry.png',           alt: 'Prompt-first builder — describe what the agent should do' },
     { src: '/images/orka/v2-generated.png',       alt: 'Generated Brand Monitor agent with narrated build' },
     { src: '/images/orka/v2-refine.png',          alt: 'Conversational edit — new step highlighted, Keep or Undo' },
