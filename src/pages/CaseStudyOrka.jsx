@@ -36,14 +36,14 @@ export default function CaseStudyOrka() {
         accentColor={accent}
       />
 
-      {/* Orka brand palette — deep dark with emerald accents */}
+      {/* Orka brand palette — the app's dark navy surfaces with blue accents */}
       <div style={{
-        '--color-surface':          '#030d07',
-        '--color-surface-alt':      '#071410',
-        '--color-surface-muted':    '#0d1f19',
-        '--color-border':           'rgba(16, 185, 129, 0.12)',
-        '--color-foreground':       '#f0faf5',
-        '--color-foreground-muted': '#6b9e8a',
+        '--color-surface':          '#0b1220',
+        '--color-surface-alt':      '#0f172a',
+        '--color-surface-muted':    '#1e293b',
+        '--color-border':           'rgba(59, 130, 246, 0.14)',
+        '--color-foreground':       '#f1f5f9',
+        '--color-foreground-muted': '#94a3b8',
       }}>
         {orka.features.map((f, i) =>
           f.highlight

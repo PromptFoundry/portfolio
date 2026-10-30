@@ -3,7 +3,7 @@ export const orka = {
   tagline: 'Orchestrate natural language into connected AI agent workflows.',
   category: 'AI Product Design & Development',
   heroImage: '/images/orka/v2-generated.png',
-  accentColor: '#10b981',
+  accentColor: '#3b82f6',
   role: 'Designer & Developer',
   timeline: '2025–2026',
   tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
