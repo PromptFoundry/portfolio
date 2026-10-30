@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { projects } from '../data/projects'
 import Tag from '../components/ui/Tag'
+import StatusBadge from '../components/ui/StatusBadge'
 
 function ProjectCard({ project }) {
   const videoRef = useRef(null)
@@ -71,6 +72,13 @@ function ProjectCard({ project }) {
               opacity: active ? 1 : 0,
             }}
           />
+        )}
+
+        {/* Status badge — shown when a project is in progress */}
+        {project.status && (
+          <div className="absolute top-3 left-3 z-10">
+            <StatusBadge>{project.status}</StatusBadge>
+          </div>
         )}
       </div>
 

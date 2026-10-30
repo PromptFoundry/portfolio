@@ -128,6 +128,7 @@ export default function CaseStudyTravelie() {
         heroImage={travelie.heroImage}
         heroVideo="https://pub-8bc960bf17b743588ae14838b4a96326.r2.dev/travelie.mp4"
         accentColor={accent}
+        status="Under construction"
       />
       <Overview
         role={travelie.role}

@@ -3,7 +3,7 @@ export const orka = {
   tagline: 'Orchestrate natural language into connected AI agent workflows.',
   category: 'AI Product Design & Development',
   heroImage: '/images/orka/v2-generated.png',
-  accentColor: '#3b82f6',
+  accentColor: '#34d399',
   role: 'Designer & Developer',
   timeline: '2025–2026',
   tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
@@ -15,13 +15,14 @@ export const orka = {
   },
 
   features: [
-    // ── Feature 1: Dashboard (FeatureSection) ─────────────────────────────
+    // ── Feature 1: Dashboard (Screenshot) ─────────────────────────────────
     {
       label: 'Agent Dashboard',
       headline: 'Every agent, at a glance.',
       body: 'The dashboard is home base: how many agents are live, what ran today and how reliably. Each agent card shows its status, what it does, its run history and when it last ran. Open any one to land straight in its workflow, or start a new agent from a single button.',
       image: '/images/orka/v2-dashboard.png',
       imagePosition: 'right',
+      screenshot: true,
     },
 
     // ── Feature 2: Prompt-first generation (Highlight) ─────────────────────
@@ -42,46 +43,49 @@ export const orka = {
       ],
     },
 
-    // ── Feature 3: Visual Node Editor (FeatureSection) ────────────────────
+    // ── Feature 3: Visual Node Editor (Split) ─────────────────────────────
     {
       label: 'Visual Node Editor',
       headline: 'See your agent. Click anything to configure it.',
       body: 'Every agent renders as a node canvas color-coded by step type. Links carry meaning too: solid lines for data, dashed amber lines for condition branches with the branch named on the line, and dotted cyan lines for memory reads and writes. Drag tools in, draw new connections from any node, tidy the layout with one click, and edit any step from the inspector.',
       image: '/images/orka/v2-generated.png',
       imagePosition: 'left',
+      split: true,
     },
 
-    // ── Feature 4: Three Views — Intent, Logic, Graph (Split) ─────────────
+    // ── Feature 4: Three Views — Intent, Logic, Graph (Screenshot) ────────
     {
       label: 'Three Views. One Agent.',
       headline: 'Switch perspectives without losing context.',
       body: "Every workflow has three views you can switch between freely. Graph shows the interactive node canvas. Logic gives you a numbered, plain-English walkthrough of the execution order. Intent restates what you asked for and what the agent will do, so any team member can understand it without reading the nodes.",
       image: '/images/orka/v2-logic.png',
       imagePosition: 'right',
-      split: true,
-      highlights: [
+      screenshot: true,
+      features: [
         { name: 'Intent view.', description: "Your original request, the agent's purpose, what starts it and what it ends by doing." },
         { name: 'Logic view.', description: 'A numbered walkthrough of every step in order, with branches spelled out in words.' },
         { name: 'Graph view.', description: 'The full interactive canvas — drag, zoom, connect, and configure steps visually.' },
       ],
     },
 
-    // ── Feature 5: Conversational Editing (FeatureSection) ────────────────
+    // ── Feature 5: Conversational Editing (Split) ─────────────────────────
     {
       label: 'Conversational Editing',
       headline: 'Ask for a change. See exactly what moved.',
       body: "You refine an agent the same way you built it — by asking. 'Email me when sentiment is very negative.' 'Drop the daily digest.' The change lands on the canvas as a visible diff: new steps glow green, edited steps pulse amber, and removed steps linger as ghosts. Nothing is final until you choose Keep or Undo, and every kept change becomes a version you can jump back to.",
       image: '/images/orka/v2-refine.png',
       imagePosition: 'left',
+      split: true,
     },
 
-    // ── Feature 6: Test Run (FeatureSection) ──────────────────────────────
+    // ── Feature 6: Test Run (Highlight) ───────────────────────────────────
     {
       label: 'Test Run',
       headline: 'Watch the agent think before it goes live.',
       body: "Hit Test Run and the agent plays through on the canvas with sample data. The running step glows, data animates along the link into it, finished steps get a check, and branches that weren't taken dim out. Memory steps show what they remembered. Alongside, the run log records each step's timing, result and output — the invisible state made visible.",
       image: '/images/orka/v2-test-run.png',
       imagePosition: 'right',
+      highlight: true,
     },
   ],
 

@@ -56,6 +56,7 @@ export const projects = [
     href: '/work/travelie',
     tools: ['Figma', 'React'],
     year: '2025',
+    status: 'Under construction',
     prototypeUrl: '/projects/travelie/',
   },
 ]

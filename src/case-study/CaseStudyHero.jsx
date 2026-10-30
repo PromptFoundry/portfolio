@@ -1,4 +1,6 @@
-export default function CaseStudyHero({ title, tagline, category, heroImage, heroVideo, accentColor }) {
+import StatusBadge from '../components/ui/StatusBadge'
+
+export default function CaseStudyHero({ title, tagline, category, heroImage, heroVideo, accentColor, status }) {
   return (
     <section
       className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden"
@@ -34,6 +36,11 @@ export default function CaseStudyHero({ title, tagline, category, heroImage, her
       />
 
       <div className="relative w-full max-w-3xl mx-auto">
+        {status && (
+          <div className="flex justify-center mb-6">
+            <StatusBadge>{status}</StatusBadge>
+          </div>
+        )}
         <p className="text-xs font-medium tracking-[0.5em] uppercase mb-6" style={{ color: accentColor || 'rgba(255,255,255,0.5)' }}>
           {category}
         </p>

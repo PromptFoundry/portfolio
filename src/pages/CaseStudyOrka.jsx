@@ -5,6 +5,7 @@ import ProblemStatementBranded from '../case-study/ProblemStatementBranded'
 import FeatureSection from '../case-study/FeatureSection'
 import FeatureSectionHighlight from '../case-study/FeatureSectionHighlight'
 import FeatureSectionSplit from '../case-study/FeatureSectionSplit'
+import FeatureSectionScreenshot from '../case-study/FeatureSectionScreenshot'
 import OutcomeStats from '../case-study/OutcomeStats'
 import PrototypeLink from '../case-study/PrototypeLink'
 import MoreWork from '../case-study/MoreWork'
@@ -36,12 +37,12 @@ export default function CaseStudyOrka() {
         accentColor={accent}
       />
 
-      {/* Orka brand palette — the app's dark navy surfaces with blue accents */}
+      {/* Orka brand palette — the app's slate surfaces with its emerald accent */}
       <div style={{
-        '--color-surface':          '#0b1220',
-        '--color-surface-alt':      '#0f172a',
+        '--color-surface':          '#0f172a',
+        '--color-surface-alt':      '#131d31',
         '--color-surface-muted':    '#1e293b',
-        '--color-border':           'rgba(59, 130, 246, 0.14)',
+        '--color-border':           'rgba(52, 211, 153, 0.14)',
         '--color-foreground':       '#f1f5f9',
         '--color-foreground-muted': '#94a3b8',
       }}>
@@ -50,7 +51,9 @@ export default function CaseStudyOrka() {
             ? <FeatureSectionHighlight key={i} {...f} accentColor={accent} />
             : f.split
               ? <FeatureSectionSplit key={i} {...f} accentColor={accent} />
-              : <FeatureSection key={i} {...f} index={i} accentColor={accent} />
+              : f.screenshot
+                ? <FeatureSectionScreenshot key={i} {...f} accentColor={accent} />
+                : <FeatureSection key={i} {...f} index={i} accentColor={accent} />
         )}
         <OutcomeStats stats={orka.stats} accentColor={accent} />
         <PrototypeLink url={orka.prototypeUrl} projectName={orka.title} accentColor={accent} />
