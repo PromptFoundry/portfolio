@@ -19,7 +19,7 @@ export const orka = {
     {
       label: 'Agent Dashboard',
       headline: 'Every agent, at a glance.',
-      body: 'The dashboard is home base: how many agents are live, what ran today and how reliably. Each agent card shows its status, what it does, its run history and when it last ran. Open any one to land straight in its workflow, or start a new agent from a single button.',
+      body: 'The dashboard is home base. A shared time range drives trend lines for agents, executions and success rate, while a run budget and a live activity feed show what each agent has been doing. Recommended templates sit one click from a working agent, and every agent card opens straight into its workflow.',
       image: '/images/orka/v2-dashboard.png',
       imagePosition: 'right',
       screenshot: true,
@@ -48,7 +48,7 @@ export const orka = {
     {
       label: 'Visual Node Editor',
       headline: 'See your agent. Click anything to configure it.',
-      body: 'Every agent renders as a node canvas color-coded by step type. Links carry meaning too: solid lines for data, dashed amber lines for condition branches with the branch named on the line, and dotted cyan lines for memory reads and writes. Drag tools in, draw new connections from any node, tidy the layout with one click, and edit any step from the inspector.',
+      body: 'Every agent renders as a node canvas color-coded by step type. Links carry meaning too: solid lines for data, dashed amber lines for condition branches with the branch named on the line, and dotted cyan lines for memory reads and writes. Drag a tool in and the nearest step lights up to show where it will attach, with a preview link to the ghost of the new step. Draw a connection and every valid target pulses. Tidy the layout with one click, and edit any step from the inspector.',
       image: '/images/orka/v2-generated.png',
       imagePosition: 'left',
       split: true,
