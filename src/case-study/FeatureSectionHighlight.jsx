@@ -2,13 +2,13 @@ import { BarChart2, ImageIcon, ListChecks, Users, DollarSign, Bell } from 'lucid
 
 const icons = [BarChart2, ImageIcon, ListChecks, Users, DollarSign, Bell]
 
-export default function FeatureSectionHighlight({ label, headline, body, image, video, highlights = [], accentColor, customVisual }) {
+export default function FeatureSectionHighlight({ label, headline, body, image, video, highlights = [], accentColor, customVisual, background }) {
   const accent = accentColor || 'var(--color-accent)'
 
   return (
     <section
       className="py-16 md:py-24 border-b"
-      style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-surface)' }}
+      style={{ borderColor: 'var(--color-border)', backgroundColor: background || 'var(--color-surface)' }}
     >
       {/* Centered header */}
       <div className="max-w-2xl mx-auto px-6 text-center">

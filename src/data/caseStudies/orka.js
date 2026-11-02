@@ -3,7 +3,7 @@ export const orka = {
   tagline: 'Orchestrate natural language into connected AI agent workflows.',
   category: 'AI Product Design & Development',
   heroImage: '/images/orka/v2-generated.png',
-  accentColor: '#34d399',
+  accentColor: '#3b82f6',
   role: 'Designer & Developer',
   timeline: '2025–2026',
   tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
@@ -33,6 +33,7 @@ export const orka = {
       image: '/images/orka/v2-entry.png',
       imagePosition: 'right',
       highlight: true,
+      background: '#030617',
       highlights: [
         { name: 'Prompt first', description: 'One box to start. Templates and a blank canvas are there when you want them, and the tool library stays tucked away until a graph exists.' },
         { name: 'Narrated build', description: 'Steps appear one at a time in flow order, and the assistant adds a one-line reason for each, so you can follow the thinking.' },
